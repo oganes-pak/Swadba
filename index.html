@@ -4,12 +4,10 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Пригласительная открытка на свадьбу</title>
-
 <!-- // Подключение шрифтов Google (заголовки и основной текст) -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet"/>
-
 <style>
 /* ============================== */
 /* Переменные, цвета, размеры     */
@@ -23,9 +21,19 @@
   --mid3:#cbac7b;
   --mid4:#b69575;
   --accent:rgba(139,111,71,.9);
-
   --pf-img: 490px;     /* диаметр первого фото */
   --pf-pad: 20px;      /* «ободок» вокруг первого фото */
+}
+
+/* ============================== */
+/* ИСПРАВЛЕНИЕ: Убираем горизонтальную прокрутку */
+/* ============================== */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* ============================== */
@@ -34,16 +42,13 @@
 /* // Сброс и плавный скролл */
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
-
 /* // Фон-градиент сверху светлый, внизу тёмный */
 body{
   font-family:'Playfair Display',serif;
   background:linear-gradient(180deg,
     var(--lightest),var(--mid1),var(--mid2),
     var(--mid3),var(--mid4),var(--darkest));
-  overflow-x:hidden;
 }
-
 /* ============================== */
 /* Секции и их базовое поведение  */
 /* ============================== */
@@ -51,36 +56,38 @@ body{
 section{
   position:relative;                 /* база для % позиционирования эмодзи */
   min-height:100vh;
-  padding:80px 40px;
+  padding:80px 20px;
   margin:40px 0;
   display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
   opacity:0;transform:translateY(30px);
   transition:opacity 1.5s ease-out,transform 1.5s ease-out;
   z-index:1;
+  width: 100%;
+  max-width: 100%;
 }
 section.visible{opacity:1;transform:none}
-
 /* // Центрирующий контейнер контента */
 .content-center{
   display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
   max-width:900px;width:100%;z-index:10;position:relative;
 }
-
 /* ============================== */
 /* Типографика                    */
 /* ============================== */
 /* // Заголовки и текст по умолчанию (в intro/story цвет меняется скриптом) */
 h1,h2,h3{
-  font-family:'Playfair Display',serif;font-weight:600;margin:20px 0;color:var(--darkest)
+  font-family:'Playfair Display',serif;font-weight:600;margin:20px 0;color:var(--darkest);
+  max-width: 100%;
+  word-wrap: break-word;
 }
 h1{font-size:3.5em} h2{font-size:3em} h3{font-size:2.5em}
 p{
-  font-family:'Lora',serif;font-size:1.3em;line-height:1.7;margin:20px 0;color:var(--darkest)
+  font-family:'Lora',serif;font-size:1.3em;line-height:1.7;margin:20px 0;color:var(--darkest);
+  max-width: 100%;
+  word-wrap: break-word;
 }
-
 /* // Элементы, появляющиеся по очереди при прокрутке */
 .animate-item{opacity:0;transform:translateY(30px);transition:opacity .8s, transform .8s}
-
 /* // Начиная с секции «Жених» — белый текст с лёгкой тенью для контраста */
 #groom h1,#groom h2,#groom h3,#groom p,
 #bride h1,#bride h2,#bride h3,#bride p,
@@ -89,7 +96,6 @@ p{
 #details h1,#details h2,#details h3,#details p,
 #contact h1,#contact h2,#contact h3,#contact p,
 footer{color:#fff!important;text-shadow:1px 1px 3px #0007!important}
-
 /* ============================== */
 /* Декоративные эмодзи            */
 /* ============================== */
@@ -108,7 +114,6 @@ footer{color:#fff!important;text-shadow:1px 1px 3px #0007!important}
   50%{transform:scale(1.4) rotate(15deg);opacity:1}
   100%{transform:scale(1) rotate(0);opacity:.7}
 }
-
 /* ============================== */
 /* Позиции эмодзи — ДЕСКТОП       */
 /* ============================== */
@@ -117,42 +122,34 @@ footer{color:#fff!important;text-shadow:1px 1px 3px #0007!important}
 #intro .emoji-2{ top:calc(18% + .5vh); right:calc(12% + 1vw) }
 #intro .emoji-3{ bottom:calc(15% + 1vh); left:calc(8% + .5vw) }
 #intro .emoji-4{ bottom:calc(25% + 2vh); right:calc(15% + 1.5vw) }
-
 #story .emoji-1{ top:calc(15% + 1vh);  left:calc(18% + 1vw) }
 #story .emoji-2{ top:calc(30% + 2vh);  right:calc(10% + 1vw) }
 #story .emoji-3{ bottom:calc(20% + 1vh); left:calc(12% + .5vw) }
 #story .emoji-4{ bottom:calc(8% + .5vh); right:calc(22% + 2vw) }
-
 #groom .emoji-1{ top:calc(12% + .5vh); left:calc(22% + 1.5vw) }
 #groom .emoji-2{ top:calc(35% + 2vh);  right:calc(8% + .5vw) }
 #groom .emoji-3{ bottom:calc(18% + 1vh); left:calc(6% + .5vw) }
 #groom .emoji-4{ bottom:calc(30% + 2vh); right:calc(18% + 1vw) }
-
 #bride .emoji-1{ top:calc(20% + 1vh);  left:calc(6% + .5vw) }
 #bride .emoji-2{ top:calc(10% + .5vh); right:calc(15% + 1vw) }
 #bride .emoji-3{ bottom:calc(25% + 2vh); left:calc(15% + 1vw) }
 #bride .emoji-4{ bottom:calc(12% + .5vh); right:calc(12% + .5vw) }
-
 #gallery .emoji-1{ top:calc(8% + .5vh); left:calc(15% + 1vw) }
 #gallery .emoji-2{ top:calc(25% + 1vh); right:calc(6% + .5vw) }
 #gallery .emoji-3{ bottom:calc(15% + 1vh); left:calc(9% + .5vw) }
 #gallery .emoji-4{ bottom:calc(30% + 2vh); right:calc(20% + 1.5vw) }
-
 #venue .emoji-1{ top:calc(18% + 1vh);  left:calc(12% + 1vw) }
 #venue .emoji-2{ top:calc(8% + .5vh);  right:calc(18% + 1vw) }
 #venue .emoji-3{ bottom:calc(22% + 1vh); left:calc(20% + 1.5vw) }
 #venue .emoji-4{ bottom:calc(8% + .5vh); right:calc(10% + .5vw) }
-
 #details .emoji-1{ top:calc(15% + 1vh); left:calc(18% + 1vw) }
 #details .emoji-2{ top:calc(32% + 2vh); right:calc(12% + 1vw) }
 #details .emoji-3{ bottom:calc(20% + 1vh); left:calc(6% + .5vw) }
 #details .emoji-4{ bottom:calc(35% + 2vh); right:calc(15% + 1vw) }
-
 #contact .emoji-1{ top:calc(25% + 2vh); left:calc(8% + .5vw) }
 #contact .emoji-2{ top:calc(12% + .5vh); right:calc(16% + 1vw) }
 #contact .emoji-3{ bottom:calc(18% + 1vh); left:calc(18% + 1vw) }
 #contact .emoji-4{ bottom:calc(30% + 2vh); right:calc(6% + .5vw) }
-
 /* ============================== */
 /* Фото и рамки                   */
 /* ============================== */
@@ -161,6 +158,8 @@ footer{color:#fff!important;text-shadow:1px 1px 3px #0007!important}
   display:grid;place-items:center;               /* центрирование фото */
   width: calc(var(--pf-img) + 2 * var(--pf-pad));
   height: calc(var(--pf-img) + 2 * var(--pf-pad));
+  max-width: 90%;
+  max-height: 90%;
   aspect-ratio: 1 / 1;                           /* гарантированный квадрат */
   border-radius: 50%;                             /* круг */
   margin:30px auto;                               /* по центру */
@@ -169,106 +168,129 @@ footer{color:#fff!important;text-shadow:1px 1px 3px #0007!important}
   box-shadow:0 15px 35px #8b6f4744, inset 0 3px 15px #ffffff4d;
 }
 .couple-photo{
-  width:var(--pf-img);height:var(--pf-img);
+  width:100%;height:100%;
+  max-width:var(--pf-img);
+  max-height:var(--pf-img);
   aspect-ratio:1/1;border-radius:50%;object-fit:cover; /* круг без искажений */
   border:3px solid #fffffff6;                            /* обводка */
 }
-
 /* // Профильные фото (жених/невеста): везде круг + рамка */
 .profile img{
-  width:220px;height:220px;aspect-ratio:1/1;border-radius:50%;
+  width:220px;height:220px;
+  max-width: 90%;
+  aspect-ratio:1/1;border-radius:50%;
   object-fit:cover;border:3px solid #ffffffe6;margin-bottom:20px;
 }
-
 /* // Галерея: одинаковая рамка для всех миниатюр */
-.gallery{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px}
+.gallery{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px; width: 100%; max-width: 100%;}
 .gallery img{
-  width:200px;height:150px;border-radius:15px;object-fit:cover;
+  width:200px;height:150px;
+  max-width: calc(50% - 10px);
+  border-radius:15px;object-fit:cover;
   border:3px solid rgba(255,255,255,0.8);        /* добавлена рамка на всех */
   transition:transform .3s ease;box-shadow:0 8px 25px #0003;
 }
-
 /* ============================== */
 /* Кнопки (без подчёркивания)     */
 /* ============================== */
-.contact-buttons{margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.contact-buttons{margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap; width: 100%; max-width: 100%;}
 .contact-btn{
   display:inline-block;padding:12px 25px;margin:5px;background:var(--accent);color:#fff;border-radius:8px;
   font-family:'Lora',serif;font-weight:500;transition:.3s;box-shadow:0 4px 15px #0003;text-decoration:none; /* убрали подчёркивание */
+  max-width: 100%;
 }
 .contact-btn:hover{background:rgba(107,78,49,.9);transform:translateY(-2px);box-shadow:0 8px 25px #8b6f4744}
-
 /* ============================== */
 /* Карта                          */
 /* ============================== */
 iframe{
   width:100%;max-width:600px;height:300px;border:none;border-radius:15px;margin-top:30px;box-shadow:0 8px 25px #0003
 }
-
 /* ============================== */
 /* Футер — на всю ширину          */
 /* ============================== */
-/* // Используем 100vw + calc-отрицательные отступы, чтобы растянуть фон на полный вьюпорт */
+/* // ИСПРАВЛЕНО: Убрали использование 100vw для избежания горизонтального скролла */
 footer{
-  display:block;width:100vw;
-  margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw); /* вырываемся из центровки */
-  padding:40px 20px;background:#0003;font-family:'Lora',serif;color:#fff;text-align:center
+  display:block;width:100%;
+  margin-left:0;margin-right:0; 
+  padding:40px 20px;background:#0003;font-family:'Lora',serif;color:#fff;text-align:center;
+  box-sizing: border-box;
 }
-
 /* ============================== */
 /* Мобильные правки               */
 /* ============================== */
 /* // Подгоняем размеры и ПЕРЕОПРЕДЕЛЯЕМ позиции эмодзи для всех проблемных секций */
 @media (max-width:768px){
-  section{padding:40px 20px;margin:20px 0;min-height:auto}
+  section{padding:40px 15px;margin:20px 0;min-height:auto; width: 100%; max-width: 100%;}
   h1{font-size:2.2em;margin-bottom:10px}
   h2{font-size:2.2em;margin-top:10px}
-  p{font-size:1em;max-width:95%}
+  p{font-size:1em;max-width:100%; padding: 0 10px;}
   .emoji{font-size:2.5em}
   :root{ --pf-img: 200px }              /* уменьшили диаметр первого фото */
-
+  
+  /* ИСПРАВЛЕНО: Адаптивные размеры для всех элементов */
+  .content-center {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  .gallery {
+    gap: 10px;
+    padding: 0 10px;
+  }
+  
+  .gallery img {
+    width: calc(50% - 5px);
+    max-width: calc(50% - 5px);
+    min-width: 150px;
+    height: auto;
+    aspect-ratio: 4/3;
+  }
+  
+  .contact-buttons {
+    padding: 0 10px;
+  }
+  
+  .contact-btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+  
   /* Intro */
   #intro .emoji-1{ top:calc(5% + .5vh); left:calc(6% + .5vw) }
   #intro .emoji-2{ top:calc(15% + .5vh); right:calc(4% + .5vw) }
   #intro .emoji-3{ bottom:calc(10% + .5vh); left:calc(4% + .5vw) }
   #intro .emoji-4{ bottom:calc(20% + 1vh); right:calc(6% + .5vw) }
-
   /* Story */
   #story .emoji-1{ top:calc(8% + .5vh); left:calc(8% + .5vw) }
   #story .emoji-2{ top:calc(20% + 1vh); right:calc(6% + .5vw) }
   #story .emoji-3{ bottom:calc(15% + .5vh); left:calc(6% + .5vw) }
   #story .emoji-4{ bottom:calc(5% + .5vh); right:calc(8% + .5vw) }
-
   /* Groom */
   #groom .emoji-1{ top:calc(8% + .5vh); left:calc(10% + .5vw) }
   #groom .emoji-2{ top:calc(25% + 1vh); right:calc(4% + .5vw) }
   #groom .emoji-3{ bottom:calc(12% + .5vh); left:calc(4% + .5vw) }
   #groom .emoji-4{ bottom:calc(25% + 1vh); right:calc(10% + .5vw) }
-
   /* Bride */
   #bride .emoji-1{ top:calc(12% + .5vh); left:calc(4% + .5vw) }
   #bride .emoji-2{ top:calc(5% + .5vh); right:calc(8% + .5vw) }
   #bride .emoji-3{ bottom:calc(18% + 1vh); left:calc(8% + .5vw) }
   #bride .emoji-4{ bottom:calc(8% + .5vh); right:calc(6% + .5vw) }
-
   /* Gallery */
   #gallery .emoji-1{ top:calc(5% + .5vh); left:calc(8% + .5vw) }
   #gallery .emoji-2{ top:calc(18% + 1vh); right:calc(4% + .5vw) }
   #gallery .emoji-3{ bottom:calc(10% + .5vh); left:calc(4% + .5vw) }
   #gallery .emoji-4{ bottom:calc(22% + 1vh); right:calc(10% + .5vw) }
-
   /* Venue */
   #venue .emoji-1{ top:calc(10% + .5vh); left:calc(6% + .5vw) }
   #venue .emoji-2{ top:calc(5% + .5vh); right:calc(10% + .5vw) }
   #venue .emoji-3{ bottom:calc(15% + .5vh); left:calc(10% + .5vw) }
   #venue .emoji-4{ bottom:calc(5% + .5vh); right:calc(6% + .5vw) }
-
   /* Details — переносим календарь, чтобы не закрывал текст */
   #details .emoji-1{ top:calc(2% + .5vh); right:calc(4% + .5vw) }
   #details .emoji-2{ top:calc(22% + 1vh); right:calc(6% + .5vw) }
   #details .emoji-3{ bottom:calc(12% + .5vh); left:calc(4% + .5vw) }
   #details .emoji-4{ bottom:calc(25% + 1vh); right:calc(8% + .5vw) }
-
   /* Contact — переносим телефон, чтобы не перекрывал цитату */
   #contact .emoji-1{ top:calc(15% + .5vh); left:calc(4% + .5vw) }
   #contact .emoji-2{ bottom:calc(2% + .5vh); left:calc(4% + .5vw) }
@@ -278,7 +300,6 @@ footer{
 </style>
 </head>
 <body>
-
 <!-- =============================== -->
 <!-- Intro: титул и первая фотография -->
 <!-- =============================== -->
@@ -286,7 +307,6 @@ footer{
   <!-- // Декоративные эмодзи (свадебная тема) -->
   <span class="emoji emoji-1">💒</span><span class="emoji emoji-2">💍</span>
   <span class="emoji emoji-3">✨</span><span class="emoji emoji-4">💕</span>
-
   <div class="content-center">
     <h1 class="animate-item">Мы женимся!</h1>
     <h2 class="animate-item">Алексей &amp; Мария</h2>
@@ -297,28 +317,24 @@ footer{
     </div>
   </div>
 </section>
-
 <!-- =============================== -->
 <!-- Наша история                    -->
 <!-- =============================== -->
 <section id="story">
   <span class="emoji emoji-1">📚</span><span class="emoji emoji-2">💝</span>
   <span class="emoji emoji-3">🌹</span><span class="emoji emoji-4">❤️</span>
-
   <div class="content-center">
     <h2 class="animate-item">Наша история</h2>
     <p class="animate-item">Мы встретились 7 лет назад в старинной библиотеке, где страницы книг шептались о вечности. Алексей – романтик с душой поэта, Мария – хранительница семейных традиций. Вместе мы создаем свою историю.</p>
     <p class="animate-item">Пусть наш день вдохновит вас на новые мечты!</p>
   </div>
 </section>
-
 <!-- =============================== -->
 <!-- Жених                           -->
 <!-- =============================== -->
 <section id="groom">
   <span class="emoji emoji-1">🤵</span><span class="emoji emoji-2">👨‍💼</span>
   <span class="emoji emoji-3">🏃‍♂️</span><span class="emoji emoji-4">🏠</span>
-
   <div class="content-center">
     <h3 class="animate-item">Жених</h3>
     <div class="profile animate-item">
@@ -327,14 +343,12 @@ footer{
     </div>
   </div>
 </section>
-
 <!-- =============================== -->
 <!-- Невеста                         -->
 <!-- =============================== -->
 <section id="bride">
   <span class="emoji emoji-1">👰‍♀️</span><span class="emoji emoji-2">📷</span>
   <span class="emoji emoji-3">🌸</span><span class="emoji emoji-4">🌺</span>
-
   <div class="content-center">
     <h3 class="animate-item">Невеста</h3>
     <div class="profile animate-item">
@@ -343,14 +357,12 @@ footer{
     </div>
   </div>
 </section>
-
 <!-- =============================== -->
 <!-- Фотоальбом                      -->
 <!-- =============================== -->
 <section id="gallery">
   <span class="emoji emoji-1">📸</span><span class="emoji emoji-2">📷</span>
   <span class="emoji emoji-3">🖼️</span><span class="emoji emoji-4">✨</span>
-
   <div class="content-center">
     <h3 class="animate-item">Фотоальбом</h3>
     <p class="animate-item">Несколько мгновений из нашей истории:</p>
@@ -365,16 +377,13 @@ footer{
       <img src="img/11.png" alt="Фото 4" onerror="this.src='https://via.placeholder.com/200x150/f0ead6/4a3728?text=7.png'"/>
     </div>
   </div>
-
 </section>
-
 <!-- =============================== -->
 <!-- Место                           -->
 <!-- =============================== -->
 <section id="venue">
   <span class="emoji emoji-1">🏛️</span><span class="emoji emoji-2">🌳</span>
   <span class="emoji emoji-3">🏞️</span><span class="emoji emoji-4">🗺️</span>
-
   <div class="content-center">
     <h3 class="animate-item">Место</h3>
     <p class="animate-item">Усадьба «Золотой сад» г. Иркутск ул. Седова, 36Б</p>
@@ -388,16 +397,13 @@ footer{
     </div>
     </div>
   </div>
-
 </section>
-
 <!-- =============================== -->
 <!-- Детали торжества                -->
 <!-- =============================== -->
 <section id="details">
   <span class="emoji emoji-1">📅</span><span class="emoji emoji-2">🎉</span>
   <span class="emoji emoji-3">👗</span><span class="emoji emoji-4">🕺</span>
-
   <div class="content-center">
     <h2 class="animate-item">Детали торжества</h2>
     <p class="animate-item">Дата: 12 июля 2025 года</p>
@@ -406,18 +412,15 @@ footer{
    <div class="gallery animate-item">
       <img src="img/16.png" alt="Фото 1" onerror="this.src='https://via.placeholder.com/200x150/f0ead6/4a3728?text=4.png'"/>
 </div>
-
     <p class="animate-item">Приносите с собой радость и готовность танцевать до полуночи!</p>
   </div>
 </section>
-
 <!-- =============================== -->
 <!-- Свяжитесь с нами                -->
 <!-- =============================== -->
 <section id="contact">
   <span class="emoji emoji-1">📞</span><span class="emoji emoji-2">💌</span>
   <span class="emoji emoji-3"> </span><span class="emoji emoji-4">💝</span>
-
   <div class="content-center">
     <h2 class="animate-item">Свяжитесь с нами</h2>
     <p class="animate-item">Номер для связи: +7 (999) 123-45-67</p>
@@ -427,15 +430,12 @@ footer{
       <a href="https://wa.me/79991234567" class="contact-btn" target="_blank">WhatsApp</a>
       <a href="https://t.me/username" class="contact-btn" target="_blank">Telegram</a>
     </div>
- 
   </div>
 </section>
-
 <!-- =============================== -->
 <!-- Футер на всю ширину             -->
 <!-- =============================== -->
 <footer>С любовью, Алексей и Мария ♥</footer>
-
 <script>
 // ===============================
 // Появление секций один раз по скроллу
@@ -452,9 +452,7 @@ const io = new IntersectionObserver((ents)=>{
     }
   });
 },{threshold:.1});
-
 document.querySelectorAll('section').forEach(s=>io.observe(s));
-
 // // Появление дочерних .animate-item по очереди
 function sequence(sec){
   sec.querySelectorAll('.animate-item').forEach((el,i)=>{
@@ -462,7 +460,6 @@ function sequence(sec){
     setTimeout(()=>{el.style.opacity=1;el.style.transform='none';}, i*300);
   });
 }
-
 // ===============================
 // Градиентный цвет только для intro/story
 // ===============================
@@ -481,7 +478,6 @@ function updateIntroStoryColor(){ // // меняем цвет текста в з
 }
 addEventListener('scroll',updateIntroStoryColor,{passive:true});
 addEventListener('DOMContentLoaded',updateIntroStoryColor);
-
 // ===============================
 // Эффекты для галереи (hover)
 // ===============================
@@ -489,7 +485,6 @@ document.querySelectorAll('.gallery img').forEach(img=>{
   img.addEventListener('mouseenter',()=>img.style.transform='scale(1.08) rotate(3deg)');
   img.addEventListener('mouseleave',()=>img.style.transform='');
 });
-
 // ===============================
 // Эмодзи: интерактивные эффекты
 // ===============================
