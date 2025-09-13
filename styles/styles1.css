@@ -1,0 +1,883 @@
+/* ============================== */
+/* СЛАВЯНСКАЯ ЦВЕТОВАЯ ПАЛИТРА    */
+/* ============================== */
+:root {
+  --earth-brown: #4A3424;
+  --deep-forest: #2C3E2D;
+  --blood-red: #8B2635;
+  --golden-amber: #D4A574;
+  --pale-birch: #F5F1E8;
+  --charcoal-ash: #3C3C3C;
+  --rust-orange: #CC6600;
+  --dark-burgundy: #5D1A1A;
+  --pine-green: #355E3B;
+  --old-gold: #CFB53B;
+  --brass-gold: #B8860B;
+  --antique-gold: #D4AF37;
+  --bone-white: #FDF6E3;
+  --shadow-grey: rgba(74, 52, 36, 0.3);
+  --ornament-gold: #B8860B;
+  --parchment: #F4E4BC;
+  
+  /* Градиенты */
+  --wood-gradient: linear-gradient(45deg, #5D4037 0%, #8D6E63 50%, #A1887F 100%);
+  --parchment-gradient: linear-gradient(180deg, #FDF6E3 0%, #F4E4BC 50%, #E8D5B7 100%);
+  --fire-gradient: linear-gradient(135deg, #8B2635 0%, #CC6600 50%, #D4A574 100%);
+}
+
+/* ============================== */
+/* УБИРАЕМ ГОРИЗОНТАЛЬНУЮ ПРОКРУТКУ */
+/* ============================== */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* ============================== */
+/* БАЗОВЫЕ СТИЛИ                  */
+/* ============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Old Standard TT', 'Times New Roman', serif;
+  background: var(--parchment-gradient);
+  color: var(--charcoal-ash);
+  line-height: 1.8;
+  font-weight: 400;
+  position: relative;
+}
+
+/* Текстура пергамента */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(139, 38, 53, 0.05) 0%, transparent 50%),
+    linear-gradient(90deg, transparent 0%, rgba(74, 52, 36, 0.03) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ============================== */
+/* ТИПОГРАФИКА БЕЗ ТЕНЕЙ          */
+/* ============================== */
+h1, h2, h3 {
+  font-family: 'MedievalSharp', 'Cinzel Decorative', serif;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 2rem 0;
+  color: var(--dark-burgundy);
+  position: relative;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+h3 {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Декоративный заголовочный текст */
+.ornamental-text {
+  font-family: 'Uncial Antiqua', 'Cinzel Decorative', serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  color: var(--antique-gold);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+}
+
+/* УЛУЧШЕННОЕ ВЫРАВНИВАНИЕ ТЕКСТА */
+p {
+  font-family: 'Philosopher', 'Old Standard TT', serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  line-height: 2;
+  margin: 0 0 2rem 0;
+  color: var(--earth-brown);
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  font-weight: 400;
+}
+
+/* ЗОЛОТОЙ ЦВЕТ ДЛЯ ПЕРВОГО БЛОКА */
+.intro-gold-text {
+  color: var(--antique-gold) !important;
+  font-weight: 500 !important;
+  font-family: 'Almendra', serif !important;
+  font-size: clamp(1.4rem, 2.8vw, 1.8rem) !important;
+}
+
+/* ============================== */
+/* СЕКЦИИ СО СЛАВЯНСКИМИ ОРНАМЕНТАМИ */
+/* ============================== */
+section {
+  position: relative;
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.5s ease-out;
+  width: 100%;
+  max-width: 100%;
+  border-top: 4px solid var(--ornament-gold);
+  border-bottom: 4px solid var(--ornament-gold);
+  margin: 3rem 0;
+}
+
+/* Улучшенные орнаментальные бордюры */
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ornament-gold) 0px,
+    var(--ornament-gold) 25px,
+    transparent 25px,
+    transparent 50px
+  );
+  z-index: 1;
+}
+
+section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ornament-gold) 0px,
+    var(--ornament-gold) 25px,
+    transparent 25px,
+    transparent 50px
+  );
+  z-index: 1;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content-center {
+  max-width: 1000px;
+  width: 100%;
+  z-index: 10;
+  position: relative;
+  padding: 3rem;
+  background: rgba(253, 246, 227, 0.8);
+  border: 3px solid var(--ornament-gold);
+  border-radius: 0;
+  box-shadow: 
+    inset 0 0 60px rgba(212, 165, 116, 0.3),
+    0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* ============================== */
+/* АЛЬТЕРНИРУЮЩИЕ ФОНЫ           */
+/* ============================== */
+#intro {
+  background: var(--wood-gradient);
+  color: var(--bone-white);
+}
+
+#intro h1, #intro h2, #intro h3 {
+  color: var(--antique-gold) !important;
+}
+
+#story {
+  background: var(--parchment-gradient);
+  color: var(--earth-brown);
+}
+
+#groom {
+  background: var(--fire-gradient);
+  color: var(--bone-white);
+}
+
+#groom h1, #groom h2, #groom h3, #groom p {
+  color: var(--earth-brown) !important;
+}
+
+#bride {
+  background: linear-gradient(135deg, var(--pale-birch) 0%, var(--parchment) 100%);
+  color: var(--earth-brown);
+}
+
+#gallery {
+  background: var(--wood-gradient);
+  color: var(--bone-white);
+}
+
+#gallery h1, #gallery h2, #gallery h3, #gallery p {
+  color: var(--earth-brown) !important;
+}
+
+#venue {
+  background: linear-gradient(45deg, var(--deep-forest) 0%, var(--pine-green) 100%);
+  color: var(--bone-white);
+}
+
+#venue h1, #venue h2, #venue h3, #venue p {
+  color: var(--earth-brown) !important;
+}
+
+#details {
+  background: var(--parchment-gradient);
+  color: var(--earth-brown);
+}
+
+#schedule {
+  background: var(--wood-gradient);
+  color: var(--bone-white);
+}
+
+#schedule h1, #schedule h2, #schedule h3, #schedule p {
+  color: var(--earth-brown) !important;
+}
+
+#contact {
+  background: var(--fire-gradient);
+  color: var(--bone-white);
+}
+
+#contact h1, #contact h2, #contact h3, #contact p {
+  color: var(--earth-brown) !important;
+}
+
+/* ============================== */
+/* ГРЕЧЕСКИЕ СИМВОЛЫ              */
+/* ============================== */
+.slavic-symbol {
+  position: absolute;
+  font-size: 4.5rem;
+  color: var(--brass-gold);
+  opacity: 0.7;
+  pointer-events: none;
+  animation: ancientFloat 6s ease-in-out infinite;
+  font-family: 'MedievalSharp', serif;
+  font-weight: bold;
+}
+
+@keyframes ancientFloat {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+    opacity: 0.7; 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(5deg); 
+    opacity: 1; 
+  }
+}
+
+.slavic-symbol:hover {
+  transform: scale(1.4) !important;
+  opacity: 1 !important;
+  pointer-events: auto;
+  color: var(--antique-gold);
+}
+
+/* Позиции символов */
+#intro .symbol-1 { top: 10%; left: 10%; }
+#intro .symbol-2 { top: 15%; right: 15%; }
+#intro .symbol-3 { bottom: 20%; left: 20%; }
+#intro .symbol-4 { bottom: 10%; right: 10%; }
+
+#story .symbol-1 { top: 20%; left: 15%; }
+#story .symbol-2 { top: 10%; right: 20%; }
+#story .symbol-3 { bottom: 15%; left: 25%; }
+#story .symbol-4 { bottom: 25%; right: 15%; }
+
+#groom .symbol-1 { top: 15%; left: 20%; }
+#groom .symbol-2 { top: 25%; right: 10%; }
+#groom .symbol-3 { bottom: 20%; left: 10%; }
+#groom .symbol-4 { bottom: 10%; right: 25%; }
+
+#bride .symbol-1 { top: 20%; left: 10%; }
+#bride .symbol-2 { top: 10%; right: 25%; }
+#bride .symbol-3 { bottom: 25%; left: 25%; }
+#bride .symbol-4 { bottom: 15%; right: 10%; }
+
+#gallery .symbol-1 { top: 10%; left: 25%; }
+#gallery .symbol-2 { top: 30%; right: 15%; }
+#gallery .symbol-3 { bottom: 15%; left: 15%; }
+#gallery .symbol-4 { bottom: 25%; right: 25%; }
+
+#venue .symbol-1 { top: 25%; left: 15%; }
+#venue .symbol-2 { top: 10%; right: 10%; }
+#venue .symbol-3 { bottom: 10%; left: 25%; }
+#venue .symbol-4 { bottom: 20%; right: 20%; }
+
+#details .symbol-1 { top: 15%; left: 25%; }
+#details .symbol-2 { top: 25%; right: 15%; }
+#details .symbol-3 { bottom: 25%; left: 15%; }
+#details .symbol-4 { bottom: 15%; right: 25%; }
+
+#schedule .symbol-1 { top: 20%; left: 20%; }
+#schedule .symbol-2 { top: 15%; right: 15%; }
+#schedule .symbol-3 { bottom: 15%; left: 15%; }
+#schedule .symbol-4 { bottom: 20%; right: 20%; }
+
+#contact .symbol-1 { top: 20%; left: 20%; }
+#contact .symbol-2 { top: 15%; right: 15%; }
+#contact .symbol-3 { bottom: 15%; left: 15%; }
+#contact .symbol-4 { bottom: 20%; right: 20%; }
+
+/* ============================== */
+/* ОТЦЕНТРОВАННЫЙ ПЛАН МЕРОПРИЯТИЯ */
+/* ============================== */
+.schedule-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 3rem auto;
+  max-width: 700px;
+  width: 100%;
+  align-items: center;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  background: rgba(253, 246, 227, 0.95);
+  border: 3px solid var(--ornament-gold);
+  padding: 1.5rem 2rem;
+  border-radius: 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 600px;
+  justify-content: center;
+}
+
+.schedule-item:hover {
+  transform: translateY(-5px);
+}
+
+.schedule-item .time {
+  font-family: 'MedievalSharp', serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--dark-burgundy);
+  min-width: 120px;
+  margin-right: 2rem;
+  text-align: center;
+}
+
+.schedule-item .event {
+  font-family: 'Philosopher', serif;
+  font-size: 1.4rem;
+  color: var(--earth-brown);
+  flex: 1;
+  text-align: center;
+}
+
+/* ============================== */
+/* УЛУЧШЕННЫЕ ФОТОГРАФИИ         */
+/* ============================== */
+.ancient-frame {
+  width: min(480px, 85vw);
+  height: min(480px, 85vw);
+  margin: 3rem auto;
+  position: relative;
+  background: var(--antique-gold);
+  padding: 15px;
+  border: 5px solid var(--dark-burgundy);
+  box-shadow: 
+    0 0 0 10px var(--ornament-gold),
+    0 25px 50px rgba(0,0,0,0.4),
+    inset 0 0 25px rgba(139, 38, 53, 0.3);
+}
+
+/* Улучшенные орнаментальные углы */
+.ancient-frame::before,
+.ancient-frame::after {
+  content: '✠';
+  position: absolute;
+  font-size: 2.5rem;
+  color: var(--dark-burgundy);
+  font-weight: bold;
+  font-family: 'MedievalSharp', serif;
+}
+
+.ancient-frame::before {
+  top: -18px;
+  left: -18px;
+}
+
+.ancient-frame::after {
+  bottom: -18px;
+  right: -18px;
+}
+
+.ancient-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid var(--bone-white);
+  transition: all 0.3s ease;
+  filter: sepia(25%) contrast(1.15);
+}
+
+.ancient-photo:hover {
+  transform: scale(1.03);
+  filter: sepia(15%) contrast(1.25);
+}
+
+.profile {
+  margin: 3rem 0;
+}
+
+.profile img {
+  width: min(340px, 80vw);
+  height: min(340px, 80vw);
+  object-fit: cover;
+  border: 8px solid var(--ornament-gold);
+  border-radius: 0;
+  box-shadow: 
+    0 0 0 5px var(--dark-burgundy),
+    0 20px 40px rgba(0,0,0,0.4);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+  filter: sepia(20%) contrast(1.15);
+}
+
+.profile img:hover {
+  transform: scale(1.04);
+}
+
+/* ============================== */
+/* ИСПРАВЛЕННАЯ ГАЛЕРЕЯ          */
+/* ============================== */
+.ancient-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin: 4rem 0;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem;
+}
+
+.ancient-gallery img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border: 5px solid var(--ornament-gold);
+  box-shadow: 
+    0 0 0 3px var(--dark-burgundy),
+    0 15px 30px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: sepia(25%) contrast(1.15);
+}
+
+.ancient-gallery img:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 
+    0 0 0 3px var(--dark-burgundy),
+    0 25px 50px rgba(0,0,0,0.5);
+  filter: sepia(15%) contrast(1.25);
+}
+
+/* ============================== */
+/* УЛУЧШЕННЫЕ КНОПКИ             */
+/* ============================== */
+.ancient-buttons {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 4rem 0;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.ancient-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background: var(--antique-gold);
+  color: var(--dark-burgundy);
+  text-decoration: none;
+  border: 4px solid var(--dark-burgundy);
+  font-family: 'MedievalSharp', serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.3),
+    inset 0 3px 6px rgba(255,255,255,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.ancient-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(139,38,53,0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.ancient-btn:hover::before {
+  left: 100%;
+}
+
+.ancient-btn:hover {
+  transform: translateY(-4px);
+  background: var(--old-gold);
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.4),
+    inset 0 3px 6px rgba(255,255,255,0.5);
+}
+
+/* ============================== */
+/* УЛУЧШЕННАЯ КАРТА              */
+/* ============================== */
+.ancient-map-container {
+  width: 100%;
+  max-width: 850px;
+  margin: 3rem auto;
+  border: 8px solid var(--ornament-gold);
+  box-shadow: 
+    0 0 0 5px var(--dark-burgundy),
+    0 20px 40px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.ancient-map-container::before {
+  content: '⚜';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  color: var(--ornament-gold);
+  background: var(--parchment);
+  padding: 0 1.5rem;
+  z-index: 2;
+  font-family: 'MedievalSharp', serif;
+}
+
+iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  filter: sepia(25%) contrast(1.15);
+}
+
+/* ============================== */
+/* АНИМИРОВАННЫЕ ЭЛЕМЕНТЫ        */
+/* ============================== */
+.animate-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.2s ease;
+}
+
+.animate-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================== */
+/* УМЕНЬШЕННЫЙ И ОТЦЕНТРОВАННЫЙ ФУТЕР */
+/* ============================== */
+footer {
+  background: var(--wood-gradient);
+  color: var(--bone-white);
+  padding: 2rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 6px solid var(--ornament-gold);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer::before {
+  content: '❦ ❦ ❦';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ornament-gold);
+  color: var(--dark-burgundy);
+  padding: 0 1.5rem;
+  font-size: 1.3rem;
+}
+
+.footer-content {
+  text-align: center;
+  font-family: 'MedievalSharp', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.footer-content .ornamental-text {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.centered-names {
+  font-size: 1.5rem;
+  margin: 0 !important;
+  text-indent: 0 !important;
+  text-align: center !important;
+}
+
+/* ============================== */
+/* МОБИЛЬНАЯ АДАПТАЦИЯ           */
+/* ============================== */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 1rem;
+    min-height: auto;
+    margin: 2rem 0;
+  }
+  
+  .content-center {
+    padding: 2rem;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2.2rem; }
+  h3 { font-size: 2rem; }
+  
+  p { 
+    font-size: 1.3rem; 
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+  
+  .intro-gold-text {
+    font-size: 1.4rem !important;
+  }
+  
+  .slavic-symbol {
+    font-size: 3rem;
+    opacity: 0.5;
+  }
+  
+  /* Мобильный план мероприятия */
+  .schedule-timeline {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+  
+  .schedule-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.2rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .schedule-item .time {
+    margin-right: 0;
+    margin-bottom: 0.8rem;
+    min-width: auto;
+    font-size: 1.4rem;
+  }
+  
+  .schedule-item .event {
+    font-size: 1.2rem;
+  }
+  
+  /* Мобильные позиции символов */
+  #intro .symbol-1 { top: 8%; left: 8%; }
+  #intro .symbol-2 { top: 12%; right: 8%; }
+  #intro .symbol-3 { bottom: 12%; left: 8%; }
+  #intro .symbol-4 { bottom: 8%; right: 8%; }
+  
+  #story .symbol-1 { top: 10%; left: 6%; }
+  #story .symbol-2 { top: 8%; right: 10%; }
+  #story .symbol-3 { bottom: 10%; left: 10%; }
+  #story .symbol-4 { bottom: 15%; right: 6%; }
+  
+  #groom .symbol-1 { top: 8%; left: 10%; }
+  #groom .symbol-2 { top: 15%; right: 6%; }
+  #groom .symbol-3 { bottom: 15%; left: 6%; }
+  #groom .symbol-4 { bottom: 8%; right: 10%; }
+  
+  #bride .symbol-1 { top: 12%; left: 6%; }
+  #bride .symbol-2 { top: 6%; right: 12%; }
+  #bride .symbol-3 { bottom: 18%; left: 12%; }
+  #bride .symbol-4 { bottom: 10%; right: 6%; }
+  
+  #gallery .symbol-1 { top: 6%; left: 12%; }
+  #gallery .symbol-2 { top: 20%; right: 8%; }
+  #gallery .symbol-3 { bottom: 8%; left: 8%; }
+  #gallery .symbol-4 { bottom: 15%; right: 12%; }
+  
+  #venue .symbol-1 { top: 15%; left: 8%; }
+  #venue .symbol-2 { top: 6%; right: 6%; }
+  #venue .symbol-3 { bottom: 6%; left: 12%; }
+  #venue .symbol-4 { bottom: 12%; right: 10%; }
+  
+  #details .symbol-1 { top: 8%; left: 12%; }
+  #details .symbol-2 { top: 15%; right: 8%; }
+  #details .symbol-3 { bottom: 15%; left: 8%; }
+  #details .symbol-4 { bottom: 8%; right: 12%; }
+  
+  #schedule .symbol-1 { top: 12%; left: 10%; }
+  #schedule .symbol-2 { top: 8%; right: 8%; }
+  #schedule .symbol-3 { bottom: 8%; left: 8%; }
+  #schedule .symbol-4 { bottom: 12%; right: 10%; }
+  
+  #contact .symbol-1 { top: 12%; left: 10%; }
+  #contact .symbol-2 { top: 8%; right: 8%; }
+  #contact .symbol-3 { bottom: 8%; left: 8%; }
+  #contact .symbol-4 { bottom: 12%; right: 10%; }
+  
+  .ancient-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 0.5rem;
+  }
+  
+  .ancient-gallery img {
+    height: 200px;
+  }
+  
+  .ancient-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .ancient-btn {
+    width: 100%;
+    max-width: 350px;
+    justify-content: center;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.2rem;
+  }
+  
+  iframe {
+    height: 350px;
+  }
+  
+  .ancient-frame {
+    width: min(380px, 90vw);
+    height: min(380px, 90vw);
+  }
+  
+  .profile img {
+    width: min(300px, 85vw);
+    height: min(300px, 85vw);
+  }
+  
+  .footer-content {
+    font-size: 1.2rem;
+  }
+  
+  .footer-content .ornamental-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 2.5rem 0.8rem;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.6rem; }
+  p { font-size: 1.2rem; }
+  
+  .intro-gold-text {
+    font-size: 1.3rem !important;
+  }
+  
+  .ancient-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .ancient-gallery img {
+    height: 180px;
+  }
+  
+  .ancient-frame {
+    width: min(320px, 95vw);
+    height: min(320px, 95vw);
+    padding: 10px;
+  }
+  
+  .profile img {
+    width: min(260px, 90vw);
+    height: min(260px, 90vw);
+  }
+  
+  .ornamental-text {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .schedule-item .time {
+    font-size: 1.3rem;
+  }
+  
+  .schedule-item .event {
+    font-size: 1.1rem;
+  }
+  
+  .footer-content {
+    font-size: 1rem;
+  }
+  
+  .footer-content .ornamental-text {
+    font-size: 0.9rem;
+  }
+}
