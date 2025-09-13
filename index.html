@@ -1,46 +1,174 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        .container {
-            text-align: center;
-        }
-        button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            width: 200px;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Портфолио - Плавные анимации</title>
+
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Yeseva+One&family=Marck+Script&display=swap"
+        rel="stylesheet">
+
+    <!-- Подключение улучшенных стилей -->
+    <link rel="stylesheet" href="styles/styles4.css">
 </head>
+
 <body>
-    <div class="container">
-        <button onclick="window.location.href='index 1.html'">Перейти на страницу 1</button>
-        <button onclick="window.location.href='index 2.html'">Перейти на страницу 2</button>
-        <button onclick="window.location.href='index 3.html'">Перейти на страницу 3</button>
-        <button onclick="window.location.href='index 4.html'">Перейти на страницу 4</button>
+    <div class="wrap">
+        <!-- Header -->
+        <header class="reveal">
+            <div class="logo">Портфолио</div>
+            <a href="https://t.me/username" class="tg-btn" target="_blank">Связаться</a>
+        </header>
+
+        <!-- Hero Section -->
+<section class="hero reveal">
+    <div>
+        <h1>Создаём элегантные приглашения</h1>
+        <p>Эстетичный дизайн под тематику, удобный просмотр гостями и минимум хлопот — максимум восторгов.</p>
+        <div class="cta">
+            <button onclick="location.href='#portfolio'" class="tg-btn">Смотреть работы</button>
+            <button onclick="location.href='#contact'" class="tg-btn ghost">Заказать</button>
+        </div>
     </div>
+    <div class="hero-visual">
+        <img src="img/111.png" alt="Пример работы">
+    </div>
+</section>
+
+
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <h2 class="section-title reveal">Портфолио</h2>
+
+            <!-- Style Cards -->
+            <div class="grid cards-3">
+                <div class="card reveal">
+                    <div class="thumb">
+                        <img src="img/p1-800.png" alt="Классический стиль">
+                    </div>
+                    <div class="card-body">
+                        <h3><a href="index 1.html">Нежная свадьба</a></h3>
+                        <p>Лёгкая типографика и деликатные акценты. Персонализированный дизайн с мягкими тонами.</p>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="thumb">
+                        <img src="img/p2-800.jpg" alt="Классический стиль">
+                    </div>
+                    <div class="card-body">
+                        <h3><a href="index 2.html">Строгая, но милая классика</a></h3>
+                        <p>Чистая сетка, спокойная палитра, акценты по делу. Идеально для элегантных событий.</p>
+                    </div>
+                </div>
+
+                <div class="card reveal">
+                    <div class="thumb">
+                        <img src="img/p3-800.jpg" alt="Классический стиль">
+                    </div>
+                    <div class="card-body">
+                        <h3><a href="index 3.html">Пригласительная открытка для ребёнка</a></h3>
+                        <p>Тёплые оттенки, мягкие градиенты и крупные заголовки. Весело и трогательно.</p>
+                    </div>
+                </div>
+                <div class="card reveal">
+                    <div class="thumb">
+                        <img src="img/p4-480.jpg" alt="Классический стиль">
+                    </div>
+                    <div class="card-body">
+                        <h3><a href="index 4.html">Зимняя свадьба</a></h3>
+                        <p>Сибирская зима, мягкий свет и лесной туман. Атмосфера загадочности и гармонии с природой.</p>
+                    </div>
+                </div>
+
+                <div class="card reveal">
+                    <div class="thumb">
+                        <img src="img/p11-800.jpg" alt="Классический стиль">
+                    </div>
+                    <div class="card-body">
+                        <h3><a href="index 5.html">Скоро</a></h3>
+                        <p>Скоро</p>
+                    </div>
+                </div>
+
+
+                <div class="card reveal">
+                    <div class="thumb">
+                        <img src="img/p11-800.jpg" alt="Тёплый стиль">
+                    </div>
+                    <div class="card-body">
+                        <h3>Скоро</h3>
+                        <p>Скоро.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Gallery with Smooth Auto-scroll -->
+            <h3 class="section-title reveal"> </h3>
+            <div class="grid cards-2 reveal">
+                <div class="card">
+                    <div class="thumb">
+                        <img src="img/p4-480.jpg" alt="Зимняя свадьба">
+                    </div>и
+                    <div class="card-body">
+                        <h3>Зимняя свадьба</h3>
+                        <p>Сибирская зима, мягкий свет и лесной туман. Атмосфера загадочности и гармонии с природой.</p>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section>
+        <h2 class="section-title.reveal"></h2>
+        <div class="steps">
+            <div class="step reveal">
+                <h3>1. Обсуждение</h3>
+                <p>Выясняем ваши пожелания, тематику и стиль мероприятия</p>
+            </div>
+            <div class="step reveal">
+                <h3>2. Создание</h3>
+                <p>Разрабатываем уникальный дизайн и верстаем сайт-приглашение</p>
+            </div>
+            <div class="step reveal">
+                <h3>3. Согласование</h3>
+                <p>Показываем результат и вносим правки по вашим пожеланиям</p>
+            </div>
+            <div class="step reveal">
+                <h3>4. Запуск</h3>
+                <p>Публикуем готовый сайт и передаем вам ссылку для гостей</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title reveal">Связь</h2>
+        <div class="reveal">
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="tg-btn" onclick="location.href='https://t.me/Oganes_17?text=Здравствуйте,%20интересует%20пригласительный%20сайт'">Написать в Telegram</button>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-style: italic;">P.S. Сайт — как хороший тост: коротко,
+                красиво, по делу.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="reveal">
+        © 2025 narcomanchik228
+    </footer>
+    </div>
+
+    <!-- Подключение улучшенного JavaScript -->
+    <script src="app3.js"></script>
 </body>
 
 </html>
