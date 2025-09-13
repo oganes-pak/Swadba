@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Пригласительная открытка на свадьбу</title>
+<!-- Премиум Google Fonts: Cormorant для заголовков + Inter для текста -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet"/>
+<style>
+/* ============================== */
+/* ПРЕМИУМ ЦВЕТОВАЯ СХЕМА         */
+/* ============================== */
+:root{
+  --primary-gold: #D4AF37;
+  --deep-navy: #1A1B3A;
+  --soft-cream: #FAF7F0;
+  --pearl-white: #FFFFFF;
+  --charcoal: #2C2C2C;
+  --accent-rose: #D4A574;
+  --text-dark: #1A1B3A;
+  --text-light: rgba(255,255,255,0.95);
+  --shadow-luxury: rgba(212, 175, 55, 0.15);
+  --gradient-gold: linear-gradient(135deg, #D4AF37, #F4E4BC, #D4AF37);
+  --gradient-navy: linear-gradient(180deg, #1A1B3A 0%, #2D2E5A 50%, #1A1B3A 100%);
+}
+
+/* ============================== */
+/* УБИРАЕМ ГОРИЗОНТАЛЬНУЮ ПРОКРУТКУ */
+/* ============================== */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* ============================== */
+/* БАЗОВЫЕ СТИЛИ                  */
+/* ============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--soft-cream);
+  color: var(--text-dark);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* ============================== */
+/* ПРЕМИУМ ТИПОГРАФИКА            */
+/* ============================== */
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 1.5rem 0;
+  color: var(--text-dark);
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 500;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+  color: var(--text-dark);
+  font-weight: 400;
+  max-width: 100%;
+}
+
+.script-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--primary-gold);
+}
+
+/* ============================== */
+/* СЕКЦИИ И КОНТЕЙНЕРЫ           */
+/* ============================== */
+section {
+  position: relative;
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+  width: 100%;
+  max-width: 100%;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content-center {
+  max-width: 900px;
+  width: 100%;
+  z-index: 10;
+  position: relative;
+  padding: 0 1rem;
+}
+
+/* ============================== */
+/* АЛЬТЕРНИРУЮЩИЕ ФОНЫ СЕКЦИЙ     */
+/* ============================== */
+#intro {
+  background: var(--gradient-gold);
+  color: var(--text-dark);
+}
+
+#story {
+  background: var(--pearl-white);
+  color: var(--text-dark);
+}
+
+#groom {
+  background: var(--gradient-navy);
+  color: var(--text-light);
+}
+
+#groom h1, #groom h2, #groom h3, #groom p {
+  color: var(--text-light) !important;
+}
+
+#bride {
+  background: var(--soft-cream);
+  color: var(--text-dark);
+}
+
+#gallery {
+  background: var(--pearl-white);
+  color: var(--text-dark);
+}
+
+#venue {
+  background: var(--gradient-navy);
+  color: var(--text-light);
+}
+
+#venue h1, #venue h2, #venue h3, #venue p {
+  color: var(--text-light) !important;
+}
+
+#details {
+  background: var(--soft-cream);
+  color: var(--text-dark);
+}
+
+#contact {
+  background: var(--gradient-navy);
+  color: var(--text-light);
+}
+
+#contact h1, #contact h2, #contact h3, #contact p {
+  color: var(--text-light) !important;
+}
+
+/* ============================== */
+/* ЭЛЕГАНТНЫЕ ЭМОДЗИ             */
+/* ============================== */
+.emoji {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.6;
+  pointer-events: none;
+  animation: float 4s ease-in-out infinite;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(-10px) rotate(5deg); opacity: 0.8; }
+}
+
+.emoji:hover {
+  transform: scale(1.2) !important;
+  opacity: 1 !important;
+  pointer-events: auto;
+}
+
+/* Позиции эмодзи для десктопа */
+#intro .emoji-1 { top: 15%; left: 15%; }
+#intro .emoji-2 { top: 20%; right: 20%; }
+#intro .emoji-3 { bottom: 25%; left: 20%; }
+#intro .emoji-4 { bottom: 15%; right: 15%; }
+
+#story .emoji-1 { top: 20%; left: 25%; }
+#story .emoji-2 { top: 25%; right: 15%; }
+#story .emoji-3 { bottom: 20%; left: 15%; }
+#story .emoji-4 { bottom: 30%; right: 25%; }
+
+#groom .emoji-1 { top: 15%; left: 20%; }
+#groom .emoji-2 { top: 30%; right: 15%; }
+#groom .emoji-3 { bottom: 25%; left: 15%; }
+#groom .emoji-4 { bottom: 15%; right: 20%; }
+
+#bride .emoji-1 { top: 25%; left: 15%; }
+#bride .emoji-2 { top: 15%; right: 25%; }
+#bride .emoji-3 { bottom: 20%; left: 25%; }
+#bride .emoji-4 { bottom: 30%; right: 15%; }
+
+#gallery .emoji-1 { top: 15%; left: 25%; }
+#gallery .emoji-2 { top: 30%; right: 20%; }
+#gallery .emoji-3 { bottom: 25%; left: 20%; }
+#gallery .emoji-4 { bottom: 15%; right: 25%; }
+
+#venue .emoji-1 { top: 20%; left: 20%; }
+#venue .emoji-2 { top: 15%; right: 15%; }
+#venue .emoji-3 { bottom: 20%; left: 25%; }
+#venue .emoji-4 { bottom: 25%; right: 20%; }
+
+#details .emoji-1 { top: 25%; left: 15%; }
+#details .emoji-2 { top: 15%; right: 20%; }
+#details .emoji-3 { bottom: 15%; left: 20%; }
+#details .emoji-4 { bottom: 25%; right: 15%; }
+
+#contact .emoji-1 { top: 20%; left: 25%; }
+#contact .emoji-2 { top: 25%; right: 15%; }
+#contact .emoji-3 { bottom: 20%; left: 15%; }
+#contact .emoji-4 { bottom: 15%; right: 25%; }
+
+/* ============================== */
+/* ПРЕМИУМ ФОТОГРАФИИ            */
+/* ============================== */
+.profile-frame {
+  width: min(400px, 80vw);
+  height: min(400px, 80vw);
+  margin: 2rem auto;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  padding: 8px;
+  box-shadow: 
+    0 20px 40px var(--shadow-luxury),
+    inset 0 2px 4px rgba(255,255,255,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.couple-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--pearl-white);
+  transition: transform 0.3s ease;
+}
+
+.couple-photo:hover {
+  transform: scale(1.05);
+}
+
+.profile {
+  margin: 2rem 0;
+}
+
+.profile img {
+  width: min(280px, 70vw);
+  height: min(280px, 70vw);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-gold);
+  box-shadow: 0 15px 30px var(--shadow-luxury);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.profile img:hover {
+  transform: scale(1.05);
+}
+
+/* ============================== */
+/* ИСПРАВЛЕННАЯ СЕТКА ФОТОГРАФИЙ */
+/* ============================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid var(--primary-gold);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* ============================== */
+/* ПРЕМИУМ КНОПКИ                */
+/* ============================== */
+.contact-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--gradient-gold);
+  color: var(--text-dark);
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px var(--shadow-luxury);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.contact-btn:hover::before {
+  left: 100%;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px var(--shadow-luxury);
+  background: var(--primary-gold);
+}
+
+/* ============================== */
+/* КАРТА                         */
+/* ============================== */
+iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  margin: 2rem 0;
+}
+
+/* ============================== */
+/* АНИМИРОВАННЫЕ ЭЛЕМЕНТЫ        */
+/* ============================== */
+.animate-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.animate-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================== */
+/* ФУТЕР                         */
+/* ============================== */
+footer {
+  background: var(--deep-navy);
+  color: var(--text-light);
+  padding: 3rem 2rem;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ============================== */
+/* МОБИЛЬНАЯ АДАПТАЦИЯ           */
+/* ============================== */
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 1rem;
+    min-height: auto;
+  }
+  
+  .content-center {
+    padding: 0 0.5rem;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2.2rem; }
+  h3 { font-size: 2rem; }
+  p { font-size: 1.1rem; }
+  
+  .emoji {
+    font-size: 2rem;
+    opacity: 0.4;
+  }
+  
+  /* Мобильные позиции эмодзи */
+  #intro .emoji-1 { top: 10%; left: 10%; }
+  #intro .emoji-2 { top: 15%; right: 10%; }
+  #intro .emoji-3 { bottom: 15%; left: 10%; }
+  #intro .emoji-4 { bottom: 10%; right: 10%; }
+  
+  #story .emoji-1 { top: 12%; left: 8%; }
+  #story .emoji-2 { top: 18%; right: 8%; }
+  #story .emoji-3 { bottom: 18%; left: 8%; }
+  #story .emoji-4 { bottom: 12%; right: 8%; }
+  
+  #groom .emoji-1 { top: 10%; left: 12%; }
+  #groom .emoji-2 { top: 20%; right: 8%; }
+  #groom .emoji-3 { bottom: 20%; left: 8%; }
+  #groom .emoji-4 { bottom: 10%; right: 12%; }
+  
+  #bride .emoji-1 { top: 15%; left: 8%; }
+  #bride .emoji-2 { top: 8%; right: 12%; }
+  #bride .emoji-3 { bottom: 12%; left: 12%; }
+  #bride .emoji-4 { bottom: 20%; right: 8%; }
+  
+  #gallery .emoji-1 { top: 8%; left: 12%; }
+  #gallery .emoji-2 { top: 25%; right: 8%; }
+  #gallery .emoji-3 { bottom: 15%; left: 8%; }
+  #gallery .emoji-4 { bottom: 8%; right: 12%; }
+  
+  #venue .emoji-1 { top: 12%; left: 8%; }
+  #venue .emoji-2 { top: 8%; right: 15%; }
+  #venue .emoji-3 { bottom: 15%; left: 15%; }
+  #venue .emoji-4 { bottom: 20%; right: 8%; }
+  
+  #details .emoji-1 { top: 20%; left: 8%; }
+  #details .emoji-2 { top: 8%; right: 12%; }
+  #details .emoji-3 { bottom: 8%; left: 12%; }
+  #details .emoji-4 { bottom: 15%; right: 8%; }
+  
+  #contact .emoji-1 { top: 15%; left: 12%; }
+  #contact .emoji-2 { top: 20%; right: 8%; }
+  #contact .emoji-3 { bottom: 12%; left: 8%; }
+  #contact .emoji-4 { bottom: 8%; right: 15%; }
+  
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .gallery img {
+    height: 200px;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .contact-btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  iframe {
+    height: 300px;
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 2rem 0.5rem;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.6rem; }
+  p { font-size: 1rem; }
+  
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .gallery img {
+    height: 180px;
+  }
+  
+  .profile-frame {
+    width: min(300px, 85vw);
+    height: min(300px, 85vw);
+  }
+  
+  .profile img {
+    width: min(220px, 75vw);
+    height: min(220px, 75vw);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- =============================== -->
+<!-- Intro: элегантное знакомство    -->
+<!-- =============================== -->
+<section id="intro" class="visible">
+  <span class="emoji emoji-1">💒</span>
+  <span class="emoji emoji-2">💍</span>
+  <span class="emoji emoji-3">✨</span>
+  <span class="emoji emoji-4">💕</span>
+  
+  <div class="content-center">
+    <p class="script-text animate-item">Мы женимся!</p>
+    <h1 class="animate-item">Алексей & Мария</h1>
+    <p class="animate-item">Приглашаем вас разделить с нами самый важный день нашей жизни, наполненный любовью, радостью и незабываемыми мгновениями.</p>
+    
+    <div class="profile-frame animate-item">
+      <img src="img/1.png" alt="Общая фотография пары" class="couple-photo" onerror="this.src='https://via.placeholder.com/400x400/D4AF37/1A1B3A?text=Общее+фото'"/>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== -->
+<!-- Наша история любви              -->
+<!-- =============================== -->
+<section id="story">
+  <span class="emoji emoji-1">📚</span>
+  <span class="emoji emoji-2">💝</span>
+  <span class="emoji emoji-3">🌹</span>
+  <span class="emoji emoji-4">❤️</span>
+  
+  <div class="content-center">
+    <h2 class="animate-item">Наша история</h2>
+    <p class="animate-item">Семь лет назад судьба свела нас в старинной библиотеке, где между страниц античных книг зародилась наша любовь. Алексей — мечтатель с поэтической душой, Мария — хранительница традиций и семейных ценностей.</p>
+    <p class="animate-item">Вместе мы создаём историю, которая станет началом нашего нового пути. Позвольте нам поделиться с вами этим волшебным моментом!</p>
+  </div>
+</section>
+
+<!-- =============================== -->
+<!-- Жених                          -->
+<!-- =============================== -->
+<section id="groom">
+  <span class="emoji emoji-1">🤵</span>
+  <span class="emoji emoji-2">👨‍💼</span>
+  <span class="emoji emoji-3">🏃‍♂️</span>
+  <span class="emoji emoji-4">🏠</span>
+  
+  <div class="content-center">
+    <h3 class="animate-item">Жених</h3>
+    <div class="profile animate-item">
+      <img src="img/2.png" alt="Фотография жениха Алексея" onerror="this.src='https://via.placeholder.com/280x280/D4AF37/1A1B3A?text=Алексей'"/>
+      <p class="animate-item">Алексей — человек с открытым сердцем и неиссякаемым оптимизмом. Страстный путешественник и спортсмен, он мечтает построить уютный дом у озера, где мы будем растить нашу семью.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== -->
+<!-- Невеста                        -->
+<!-- =============================== -->
+<section id="bride">
+  <span class="emoji emoji-1">👰‍♀️</span>
+  <span class="emoji emoji-2">📷</span>
+  <span class="emoji emoji-3">🌸</span>
+  <span class="emoji emoji-4">🌺</span>
+  
+  <div class="content-center">
+    <h3 class="animate-item">Невеста</h3>
+    <div class="profile animate-item">
+      <img src="img/3.png" alt="Фотография невесты Марии" onerror="this.src='https://via.placeholder.com/280x280/D4AF37/1A1B3A?text=Мария'"/>
+      <p class="animate-item">Мария — творческая натура с утончённым вкусом. Талантливый фотограф и флорист, она находит красоту в каждом моменте жизни и создаёт уют везде, где появляется.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== -->
+<!-- Наш фотоальбом                 -->
+<!-- =============================== -->
+<section id="gallery">
+  <span class="emoji emoji-1">📸</span>
+  <span class="emoji emoji-2">📷</span>
+  <span class="emoji emoji-3">🖼️</span>
+  <span class="emoji emoji-4">✨</span>
+  
+  <div class="content-center">
+    <h3 class="animate-item">Моменты нашей любви</h3>
+    <p class="animate-item">Каждый снимок — частичка нашей истории, наполненная смехом, нежностью и безграничным счастьем.</p>
+    
+    <div class="gallery animate-item">
+      <img src="img/4.png" alt="Общее фото пары 1" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Фото+1'"/>
+      <img src="img/5.png" alt="Общее фото пары 2" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Фото+2'"/>
+      <img src="img/6.png" alt="Общее фото пары 3" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Фото+3'"/>
+      <img src="img/7.png" alt="Общее фото пары 4" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Фото+4'"/>
+      <img src="img/8.png" alt="Общее фото пары 5" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Фото+5'"/>
+      <img src="img/9.png" alt="Общее фото пары 6" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Фото+6'"/>
+      <img src="img/10.png" alt="Общее фото пары 7" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Фото+7'"/>
+      <img src="img/11.png" alt="Общее фото пары 8" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Фото+8'"/>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== -->
+<!-- Место проведения               -->
+<!-- =============================== -->
+<section id="venue">
+  <span class="emoji emoji-1">🏛️</span>
+  <span class="emoji emoji-2">🌳</span>
+  <span class="emoji emoji-3">🏞️</span>
+  <span class="emoji emoji-4">🗺️</span>
+  
+  <div class="content-center">
+    <h3 class="animate-item">Место торжества</h3>
+    <p class="animate-item">Усадьба «Золотой сад»</p>
+    <p class="animate-item">г. Иркутск, ул. Седова, 36Б</p>
+    
+    <iframe class="animate-item" src="https://yandex.ru/map-widget/v1/?text=г.Иркутск%20ул.Седова%2036Б&z=16&l=map" title="Карта места проведения свадьбы"></iframe>
+    
+    <p class="animate-item">Элегантная усадьба с живописным садом, романтическим озером и роскошным банкетным залом. Здесь каждая деталь создана для незабываемого праздника.</p>
+    
+    <div class="gallery animate-item">
+      <img src="img/12.png" alt="Фото заведения 1" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Усадьба+1'"/>
+      <img src="img/13.png" alt="Фото заведения 2" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Усадьба+2'"/>
+      <img src="img/14.png" alt="Фото заведения 3" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Усадьба+3'"/>
+      <img src="img/15.png" alt="Фото заведения 4" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Усадьба+4'"/>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== -->
+<!-- Детали торжества               -->
+<!-- =============================== -->
+<section id="details">
+  <span class="emoji emoji-1">📅</span>
+  <span class="emoji emoji-2">🎉</span>
+  <span class="emoji emoji-3">👗</span>
+  <span class="emoji emoji-4">🕺</span>
+  
+  <div class="content-center">
+    <h2 class="animate-item">Детали празднования</h2>
+    <p class="animate-item"><strong>Дата:</strong> 12 июля 2025 года</p>
+    <p class="animate-item"><strong>Время:</strong> 16:00</p>
+    <p class="animate-item"><strong>Адрес:</strong> г. Иркутск, ул. Седова, 36Б</p>
+    <p class="animate-item"><strong>Дресс-код:</strong> Old Money Elegance<br>
+    Классические костюмы, элегантные вечерние платья в пастельных тонах и благородных оттенках</p>
+    
+    <div class="gallery animate-item">
+      <img src="img/16.png" alt="Детали торжества" onerror="this.src='https://via.placeholder.com/300x250/D4AF37/1A1B3A?text=Детали'"/>
+    </div>
+    
+    <p class="animate-item">Приходите с радостным настроением и готовностью танцевать до рассвета!</p>
+  </div>
+</section>
+
+<!-- =============================== -->
+<!-- Контакты                       -->
+<!-- =============================== -->
+<section id="contact">
+  <span class="emoji emoji-1">📞</span>
+  <span class="emoji emoji-2">💌</span>
+  <span class="emoji emoji-3">💎</span>
+  <span class="emoji emoji-4">💝</span>
+  
+  <div class="content-center">
+    <h2 class="animate-item">Свяжитесь с нами</h2>
+    <p class="animate-item">По всем вопросам: +7 (999) 123-45-67</p>
+    <p class="animate-item">Ваше присутствие — лучший подарок для нас. Будем рады видеть вас на нашем празднике любви!</p>
+    
+    <div class="contact-buttons animate-item">
+      <a href="tel:+79991234567" class="contact-btn">Позвонить</a>
+      <a href="https://wa.me/79991234567" class="contact-btn" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/username" class="contact-btn" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== -->
+<!-- Элегантный футер               -->
+<!-- =============================== -->
+<footer>
+  <p class="script-text">С любовью и нетерпением,</p>
+  <p>Алексей и Мария ♥</p>
+</footer>
+
+<script>
+// ===============================
+// Плавное появление секций
+// ===============================
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      
+      // Анимация элементов внутри секции
+      const animateItems = entry.target.querySelectorAll('.animate-item');
+      animateItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('visible');
+        }, index * 200);
+      });
+    }
+  });
+}, observerOptions);
+
+// Наблюдаем за всеми секциями
+document.querySelectorAll('section').forEach(section => {
+  sectionObserver.observe(section);
+});
+
+// ===============================
+// Интерактивность галереи
+// ===============================
+document.querySelectorAll('.gallery img').forEach(img => {
+  img.addEventListener('click', () => {
+    // Можно добавить модальное окно для просмотра фото
+    img.style.transform = 'scale(1.1)';
+    setTimeout(() => {
+      img.style.transform = '';
+    }, 300);
+  });
+});
+
+// ===============================
+// Эффекты для эмодзи
+// ===============================
+document.querySelectorAll('.emoji').forEach(emoji => {
+  emoji.addEventListener('mouseenter', () => {
+    emoji.style.animationPlayState = 'paused';
+    emoji.style.transform = 'scale(1.5) rotate(15deg)';
+  });
+  
+  emoji.addEventListener('mouseleave', () => {
+    emoji.style.animationPlayState = 'running';
+    emoji.style.transform = '';
+  });
+  
+  emoji.addEventListener('click', () => {
+    emoji.style.transform = 'scale(2) rotate(360deg)';
+    setTimeout(() => {
+      emoji.style.transform = '';
+    }, 600);
+  });
+});
+
+// ===============================
+// Плавная прокрутка для якорных ссылок
+// ===============================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
