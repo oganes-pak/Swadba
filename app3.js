@@ -257,5 +257,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
   items.forEach(el => obs.observe(el));
 });
+// Принудительно применить анимацию через JS
+document.querySelector('.hero-visual').style.animation = 'heroFloat 8s ease-in-out infinite';
+// Простая анимация карточек через JS
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.cards-3 .card');
+  
+  cards.forEach((card, index) => {
+    // Начальное состояние
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'all 0.6s ease';
+    
+    // Запуск анимации с задержкой
+    setTimeout(() => {
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, 100 + (index * 200)); // задержка 100ms + 200ms для каждой карточки
+    
+    // Hover эффект
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-10px) scale(1.02)';
+      card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) scale(1)';
+      card.style.boxShadow = 'none';
+    });
+  });
+});
+// Специальный наблюдатель для card-animated элементов
+const cardAnimatedEls = document.querySelectorAll('.card-animated');
+const cardAnimatedObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('inview');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+cardAnimatedEls.forEach(el => cardAnimatedObserver.observe(el));
 
 document.head.appendChild(style);
