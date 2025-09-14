@@ -217,5 +217,45 @@ style.innerHTML = `
     }
 }
 `;
+// Плавное появление блоков через IntersectionObserver
+(function() {
+  const items = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || items.length === 0) {
+    // Фоллбек: сразу показываем
+    items.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // Можно отключать наблюдение после появления:
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+  items.forEach(el => obs.observe(el));
+})();
+// Разместить в app3.js (или ниже перед </body>)
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.reveal');
+
+  // Фоллбек: если IntersectionObserver не поддерживается — показать сразу
+  if (!('IntersectionObserver' in window) || items.length === 0) {
+    items.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const obs = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+  items.forEach(el => obs.observe(el));
+});
 
 document.head.appendChild(style);
