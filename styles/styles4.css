@@ -391,7 +391,10 @@ select.form-control {
   background-size: 16px;
   padding-right: var(--space-32);
 }
-
+html, body {
+  max-width: 100%;
+  overflow-x: clip; /* можно заменить на hidden при необходимости */
+}
 /* Add a dark mode specific caret */
 @media (prefers-color-scheme: dark) {
   select.form-control {
