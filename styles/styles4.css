@@ -921,14 +921,17 @@ html {
   /* Chrome/Safari/Edge (Blink/WebKit) */
   display: none;
 }
+
 /* --- Timeline (Ход работы) с равной шириной блоков --- */
 .timeline {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
-  gap: 5px; /* Между блоками 0.5px */
+  gap: 5px;
+  /* Между блоками 0.5px */
   position: relative;
   margin: var(--space-16) 0;
-  padding: 20px; /* Отступ от стенки 1px */
+  padding: 20px;
+  /* Отступ от стенки 1px */
 }
 
 .timeline-item {
@@ -941,7 +944,8 @@ html {
   transition: all var(--duration-normal) var(--ease-standard);
   display: flex;
   flex-direction: column;
-  min-height: 200px; /* Обеспечивает одинаковую высоту */
+  min-height: 200px;
+  /* Обеспечивает одинаковую высоту */
 }
 
 .timeline-item:hover {
@@ -963,17 +967,20 @@ html {
   margin: 0;
   line-height: var(--line-height-normal);
   color: var(--color-text-secondary);
-  flex-grow: 1; /* Заполняет оставшееся пространство */
+  flex-grow: 1;
+  /* Заполняет оставшееся пространство */
 }
 
 /* Мобильная адаптация */
 @media (max-width: 768px) {
   .timeline {
     grid-template-columns: 1fr;
-    gap: 0.5px; /* Сохраняем минимальный gap и на мобильных */
-    padding: 1px; /* Сохраняем отступ от стенки */
+    gap: 0.5px;
+    /* Сохраняем минимальный gap и на мобильных */
+    padding: 1px;
+    /* Сохраняем отступ от стенки */
   }
-  
+
   .timeline-item {
     min-height: auto;
   }
@@ -1480,7 +1487,7 @@ footer {
   }
 
   .wrap {
-    
+
     left: 12rex;
   }
 
@@ -1633,6 +1640,7 @@ footer {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
+
 /* === РАБОЧАЯ АНИМАЦИЯ HERO === */
 .hero-visual {
   animation: heroFloat 6s ease-in-out infinite;
@@ -1648,6 +1656,7 @@ footer {
 .hero-visual:hover img {
   transform: scale(1.05);
 }
+
 .card-animated {
   opacity: 0;
   transform: translateY(20px);
@@ -1659,6 +1668,7 @@ footer {
   transform: translateY(0);
   animation: cardFadeUp 0.8s ease-out forwards;
 }
+
 /* --- Benefits Section (Почему стоит выбрать нас) --- */
 
 /* Контейнер для всех benefits блоков */
@@ -1780,16 +1790,17 @@ footer {
     gap: 5px;
     padding: 20px;
   }
-  
+
   .benefits-item {
     min-height: 180px;
     padding: var(--space-20);
   }
-  
+
   .benefits-item h3 {
     font-size: var(--font-size-lg);
   }
 }
+
 /* --- Timeline Work Types Section --- */
 .work-types-timeline {
   margin: var(--space-32) 0;
@@ -1952,10 +1963,12 @@ footer {
   color: var(--color-text);
   display: flex;
   align-items: center;
-  justify-content: center; /* Центрируем по горизонтали */
+  justify-content: center;
+  /* Центрируем по горизонтали */
   gap: var(--space-12);
   position: relative;
-  text-align: center; /* Центрируем текст */
+  text-align: center;
+  /* Центрируем текст */
 }
 
 
@@ -1985,26 +1998,27 @@ footer {
     left: 30px;
     transform: none;
   }
-  
+
   .step {
     width: calc(100% - 80px);
     left: 60px !important;
     margin: var(--space-24) 0;
   }
-  
+
   .step::before {
-    display: none; /* Убираем стрелки на мобильных */
+    display: none;
+    /* Убираем стрелки на мобильных */
   }
-  
+
   .step::after {
     left: -42px !important;
     right: auto !important;
   }
-  
+
   .step h3 {
     font-size: var(--font-size-lg);
   }
-  
+
   .step h3::before {
     width: 32px;
     height: 32px;
@@ -2037,20 +2051,25 @@ footer {
 .step:nth-child(2).reveal {
   animation-delay: 0.4s;
 }
+
 /* Увеличенные карточки с сохранением отступов */
 .grid.cards-2 {
   display: flex;
   overflow: hidden;
-  gap: 20px; /* Расстояние между блоками */
+  gap: 20px;
+  /* Расстояние между блоками */
   max-width: 100%;
-  padding: 20px; /* Отступы от стенок */
+  padding: 20px;
+  /* Отступы от стенок */
   position: relative;
 }
 
 .grid.cards-2 .card {
   flex: 0 0 auto;
-  width: min(80vw, 600px); /* Увеличена ширина с 400px до 600px */
-  min-width: 320px; /* Увеличен минимальный размер */
+  width: min(80vw, 600px);
+  /* Увеличена ширина с 400px до 600px */
+  min-width: 320px;
+  /* Увеличен минимальный размер */
   scroll-snap-align: start;
   transition: all var(--duration-normal) var(--ease-standard);
   background: var(--color-surface);
@@ -2066,7 +2085,8 @@ footer {
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-base);
   overflow: hidden;
-  height: 300px; /* Увеличена высота с 200px до 300px */
+  height: 300px;
+  /* Увеличена высота с 200px до 300px */
 }
 
 .thumb img {
@@ -2083,18 +2103,21 @@ footer {
 }
 
 .card-body {
-  padding: var(--space-20); /* Увеличен внутренний отступ */
+  padding: var(--space-20);
+  /* Увеличен внутренний отступ */
 }
 
 .card-body h3 {
-  font-size: var(--font-size-xl); /* Увеличен размер заголовка */
+  font-size: var(--font-size-xl);
+  /* Увеличен размер заголовка */
   margin: var(--space-16) 0 var(--space-12) 0;
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
 }
 
 .card-body p {
-  font-size: var(--font-size-base); /* Увеличен размер текста */
+  font-size: var(--font-size-base);
+  /* Увеличен размер текста */
   margin: 0 0 var(--space-16) 0;
   line-height: var(--line-height-normal);
   color: var(--color-text-secondary);
@@ -2111,20 +2134,21 @@ footer {
     gap: 16px;
     padding: 16px;
   }
-  
+
   .grid.cards-2 .card {
     width: min(85vw, 350px);
     min-width: 280px;
   }
-  
+
   .card .thumb {
-    height: 220px; /* Чуть меньше на мобильных */
+    height: 220px;
+    /* Чуть меньше на мобильных */
   }
-  
+
   .card-body {
     padding: var(--space-16);
   }
-  
+
   .card-body h3 {
     font-size: var(--font-size-lg);
   }
@@ -2135,22 +2159,25 @@ footer {
     gap: 12px;
     padding: 12px;
   }
-  
+
   .grid.cards-2 .card {
     width: min(90vw, 280px);
     min-width: 240px;
   }
-  
+
   .card .thumb {
     height: 180px;
   }
 }
+
 /* Растягивание карт по всей ширине контейнера */
 .grid.cards-2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px; /* Отступы между карточками */
-  padding: 20px; /* Отступы от краев */
+  gap: 20px;
+  /* Отступы между карточками */
+  padding: 20px;
+  /* Отступы от краев */
   width: 100%;
   box-sizing: border-box;
 }
@@ -2167,7 +2194,8 @@ footer {
 }
 
 .card .thumb {
-  height: 300px; /* Увеличенная высота изображения */
+  height: 300px;
+  /* Увеличенная высота изображения */
   overflow: hidden;
   aspect-ratio: 16 / 9;
 }
@@ -2187,7 +2215,8 @@ footer {
 
 .card-body {
   padding: var(--space-20);
-  flex-grow: 1; /* Заполняет оставшееся пространство */
+  flex-grow: 1;
+  /* Заполняет оставшееся пространство */
 }
 
 .card-body h3 {
@@ -2216,7 +2245,7 @@ footer {
     gap: 16px;
     padding: 16px;
   }
-  
+
   .card .thumb {
     height: 250px;
   }
@@ -2229,15 +2258,15 @@ footer {
     gap: 16px;
     padding: 16px;
   }
-  
+
   .card .thumb {
     height: 220px;
   }
-  
+
   .card-body {
     padding: var(--space-16);
   }
-  
+
   .card-body h3 {
     font-size: var(--font-size-lg);
   }
@@ -2246,11 +2275,12 @@ footer {
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
   .grid.cards-2 {
-    grid-template-columns: 1fr; /* Одна колонка */
+    grid-template-columns: 1fr;
+    /* Одна колонка */
     gap: 12px;
     padding: 12px;
   }
-  
+
   .card .thumb {
     height: 180px;
   }
@@ -2263,8 +2293,10 @@ footer {
   gap: 20px;
   padding: 20px;
   width: 100%;
-  max-width: 1517px; /* Максимальная ширина контейнера */
-  margin: 0 auto; /* Центрируем контейнер */
+  max-width: 1517px;
+  /* Максимальная ширина контейнера */
+  margin: 0 auto;
+  /* Центрируем контейнер */
   box-sizing: border-box;
 }
 
@@ -2278,11 +2310,13 @@ footer {
   flex-direction: column;
   transition: all var(--duration-normal) var(--ease-standard);
   width: 100%;
-  min-width: 280px; /* Минимальная ширина для читаемости */
+  min-width: 280px;
+  /* Минимальная ширина для читаемости */
 }
 
 .card .thumb {
-  height: 350px; /* Увеличена высота для широких карточек */
+  height: 350px;
+  /* Увеличена высота для широких карточек */
   overflow: hidden;
   aspect-ratio: 16 / 9;
 }
@@ -2301,19 +2335,22 @@ footer {
 }
 
 .card-body {
-  padding: var(--space-24); /* Увеличены отступы для широких карточек */
+  padding: var(--space-24);
+  /* Увеличены отступы для широких карточек */
   flex-grow: 1;
 }
 
 .card-body h3 {
-  font-size: var(--font-size-2xl); /* Увеличен размер заголовка */
+  font-size: var(--font-size-2xl);
+  /* Увеличен размер заголовка */
   margin: 0 0 var(--space-16) 0;
   font-weight: var(--font-weight-semibold);
   color: var(--color-text);
 }
 
 .card-body p {
-  font-size: var(--font-size-lg); /* Увеличен размер текста */
+  font-size: var(--font-size-lg);
+  /* Увеличен размер текста */
   margin: 0;
   line-height: var(--line-height-normal);
   color: var(--color-text-secondary);
@@ -2327,13 +2364,14 @@ footer {
 /* Адаптация для больших экранов */
 @media (min-width: 1200px) {
   .grid.cards-2 {
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* На больших экранах минимум 400px */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    /* На больших экранах минимум 400px */
   }
-  
+
   .card .thumb {
     height: 400px;
   }
-  
+
   .card-body {
     padding: var(--space-32);
   }
@@ -2347,19 +2385,19 @@ footer {
     padding: 16px;
     max-width: 100%;
   }
-  
+
   .card .thumb {
     height: 280px;
   }
-  
+
   .card-body {
     padding: var(--space-20);
   }
-  
+
   .card-body h3 {
     font-size: var(--font-size-xl);
   }
-  
+
   .card-body p {
     font-size: var(--font-size-base);
   }
@@ -2372,19 +2410,19 @@ footer {
     gap: 16px;
     padding: 16px;
   }
-  
+
   .card .thumb {
     height: 220px;
   }
-  
+
   .card-body {
     padding: var(--space-16);
   }
-  
+
   .card-body h3 {
     font-size: var(--font-size-lg);
   }
-  
+
   .card-body p {
     font-size: var(--font-size-sm);
   }
@@ -2393,13 +2431,100 @@ footer {
 /* Очень маленькие экраны */
 @media (max-width: 480px) {
   .grid.cards-2 {
-    grid-template-columns: 1fr; /* Одна колонка */
+    grid-template-columns: 1fr;
+    /* Одна колонка */
     gap: 12px;
     padding: 12px;
   }
-  
+
   .card .thumb {
     height: 180px;
   }
 }
 
+.thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+
+
+.card:hover .thumb::after {
+  transform: translateY(0);
+}
+
+.thumb {
+  position: relative;
+}
+
+.thumb::before {
+  content: "🔗";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(0);
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+.card:hover .thumb::before {
+  transform: scale(1);
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.1);
+  }
+
+  80% {
+    transform: scale(0.95);
+  }
+}
+
+.thumb {
+  position: relative;
+}
+
+.thumb::after {
+  content: "НАЖМИТЕ\AЧТОБЫ ОТКРЫТЬ";
+  white-space: pre;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.375);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .thumb::after {
+  opacity: 1;
+}
