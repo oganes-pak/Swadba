@@ -14,20 +14,30 @@
   --color-slate-900: rgba(19, 52, 59, 1);
 
   /* Байкальские оттенки */
-  --color-baikal-blue: rgba(70, 130, 180, 1); /* #4682B4 */
-  --color-baikal-light: rgba(95, 158, 160, 1); /* #5F9EA0 */
-  --color-baikal-ice: rgba(135, 206, 235, 1); /* #87CEEB */
-  --color-siberian-green: rgba(34, 139, 34, 1); /* #228B22 */
-  --color-cedar-green: rgba(46, 139, 87, 1); /* #2E8B57 */
-  
+  --color-baikal-blue: rgba(70, 130, 180, 1);
+  /* #4682B4 */
+  --color-baikal-light: rgba(95, 158, 160, 1);
+  /* #5F9EA0 */
+  --color-baikal-ice: rgba(135, 206, 235, 1);
+  /* #87CEEB */
+  --color-siberian-green: rgba(34, 139, 34, 1);
+  /* #228B22 */
+  --color-cedar-green: rgba(46, 139, 87, 1);
+  /* #2E8B57 */
+
   /* Золотые акценты */
-  --color-gold: rgba(255, 215, 0, 1); /* #FFD700 */
-  --color-gold-light: rgba(255, 165, 0, 1); /* #FFA500 */
-  --color-gold-dark: rgba(218, 165, 32, 1); /* #DAA520 */
-  
+  --color-gold: rgba(255, 215, 0, 1);
+  /* #FFD700 */
+  --color-gold-light: rgba(255, 165, 0, 1);
+  /* #FFA500 */
+  --color-gold-dark: rgba(218, 165, 32, 1);
+  /* #DAA520 */
+
   /* Снежные оттенки */
-  --color-snow-white: rgba(248, 248, 255, 1); /* #F8F8FF */
-  --color-snow-cream: rgba(255, 250, 205, 1); /* #FFFACD */
+  --color-snow-white: rgba(248, 248, 255, 1);
+  /* #F8F8FF */
+  --color-snow-cream: rgba(255, 250, 205, 1);
+  /* #FFFACD */
 
   /* RGB версии для контроля opacity */
   --color-baikal-blue-rgb: 70, 130, 180;
@@ -115,11 +125,9 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-text);
-  background: linear-gradient(
-    135deg,
-    var(--color-snow-white) 0%,
-    var(--color-baikal-ice) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--color-snow-white) 0%,
+      var(--color-baikal-ice) 100%);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -150,11 +158,9 @@ section {
   text-align: center;
   margin-bottom: var(--spacing-3xl);
   color: var(--color-text);
-  background: linear-gradient(
-    135deg,
-    var(--color-baikal-blue),
-    var(--color-gold)
-  );
+  background: linear-gradient(135deg,
+      var(--color-baikal-blue),
+      var(--color-gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -180,12 +186,10 @@ section {
   align-items: center;
   justify-content: center;
   position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(248, 248, 255, 0.9) 0%,
-    rgba(135, 206, 235, 0.8) 50%,
-    rgba(70, 130, 180, 0.7) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(248, 248, 255, 0.9) 0%,
+      rgba(135, 206, 235, 0.8) 50%,
+      rgba(70, 130, 180, 0.7) 100%);
   overflow: hidden;
 }
 
@@ -196,7 +200,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(circle at 30% 70%, rgba(70, 130, 180, 0.1) 20%, transparent 50%),
     radial-gradient(circle at 70% 30%, rgba(135, 206, 235, 0.15) 30%, transparent 60%),
     linear-gradient(45deg, rgba(248, 248, 255, 0.1) 25%, transparent 25%),
@@ -206,8 +210,13 @@ section {
 }
 
 @keyframes baikalMovement {
-  0% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
-  100% { background-position: 100% 100%, -100% -100%, 50px 50px, -50px -50px; }
+  0% {
+    background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 100%, -100% -100%, 50px 50px, -50px -50px;
+  }
 }
 
 /* Золотые частицы */
@@ -218,7 +227,7 @@ section {
   right: 0;
   bottom: 0;
   pointer-events: none;
-  background: 
+  background:
     radial-gradient(2px 2px at 20px 30px, rgba(255, 215, 0, 0.4), transparent),
     radial-gradient(2px 2px at 40px 70px, rgba(255, 165, 0, 0.3), transparent),
     radial-gradient(1px 1px at 90px 40px, rgba(218, 165, 32, 0.5), transparent),
@@ -229,8 +238,15 @@ section {
 }
 
 @keyframes goldenFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .hero-content {
@@ -255,14 +271,12 @@ section {
 .golden-frame {
   position: relative;
   padding: var(--spacing-sm);
-  background: linear-gradient(
-    45deg,
-    var(--color-gold) 0%,
-    var(--color-gold-light) 25%,
-    var(--color-gold-dark) 50%,
-    var(--color-gold-light) 75%,
-    var(--color-gold) 100%
-  );
+  background: linear-gradient(45deg,
+      var(--color-gold) 0%,
+      var(--color-gold-light) 25%,
+      var(--color-gold-dark) 50%,
+      var(--color-gold-light) 75%,
+      var(--color-gold) 100%);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-gold);
   overflow: hidden;
@@ -275,12 +289,10 @@ section {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
   transition: left 0.8s;
 }
 
@@ -320,7 +332,7 @@ section {
 }
 
 .hero-text {
-  text-align: left;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -334,11 +346,9 @@ section {
   font-size: var(--font-size-5xl);
   font-weight: 700;
   margin-bottom: var(--spacing-lg);
-  background: linear-gradient(
-    135deg,
-    var(--color-baikal-blue),
-    var(--color-gold)
-  );
+  background: linear-gradient(135deg,
+      var(--color-baikal-blue),
+      var(--color-gold));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -373,18 +383,24 @@ section {
 
 .date-content {
   font-family: var(--font-accent);
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-2xl);
+  /* Уменьшил размер шрифта для компактности */
   font-weight: 600;
   color: var(--color-gold);
   background: rgb(255, 255, 255);
   backdrop-filter: blur(10px);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
+  /* Уменьшил отступы, чтобы контейнер стал меньше */
   border-radius: var(--radius-xl);
   text-align: center;
   border: 2px solid rgba(255, 215, 0, 0.3);
   box-shadow: var(--shadow-gold);
   position: relative;
   overflow: hidden;
+  display: inline-block;
+  /* Делает контейнер обхватывающим содержимое, а не полным ширины */
+  min-width: 152px;
+  /* Предотвращает ненужное растяжение */
 }
 
 .date-content::before {
@@ -394,18 +410,21 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(255, 215, 0, 0.1) 50%,
-    transparent 70%
-  );
+  background: linear-gradient(45deg,
+      transparent 30%,
+      rgba(255, 215, 0, 0.1) 50%,
+      transparent 70%);
   animation: shimmer 3s infinite;
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .hero-description {
@@ -417,11 +436,9 @@ section {
 
 /* === СЕКЦИЯ ИСТОРИИ === */
 .story-section {
-  background: linear-gradient(
-    135deg,
-    rgba(248, 248, 255, 0.9) 0%,
-    rgba(255, 255, 253, 0.95) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(248, 248, 255, 0.9) 0%,
+      rgba(255, 255, 253, 0.95) 100%);
   position: relative;
 }
 
@@ -447,7 +464,7 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
+  background:
     radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 2px, transparent 2px),
     radial-gradient(circle at 80% 80%, rgba(135, 206, 235, 0.2) 1px, transparent 1px);
   background-size: 40px 40px, 60px 60px;
@@ -471,19 +488,15 @@ section {
 }
 
 .groom-section {
-  background: linear-gradient(
-    135deg,
-    rgba(34, 139, 34, 0.05) 0%,
-    rgba(248, 248, 255, 0.95) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(34, 139, 34, 0.05) 0%,
+      rgba(248, 248, 255, 0.95) 100%);
 }
 
 .bride-section {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 250, 205, 0.3) 0%,
-    rgba(135, 206, 235, 0.1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 250, 205, 0.3) 0%,
+      rgba(135, 206, 235, 0.1) 100%);
 }
 
 .profile-content {
@@ -500,6 +513,7 @@ section {
 }
 
 @media (max-width: 768px) {
+
   .profile-content,
   .profile-content.reverse {
     grid-template-columns: 1fr;
@@ -548,11 +562,9 @@ section {
 
 /* === ФОТОГАЛЕРЕЯ === */
 .gallery-section {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 253, 0.95) 0%,
-    rgba(135, 206, 235, 0.1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 255, 253, 0.95) 0%,
+      rgba(135, 206, 235, 0.1) 100%);
 }
 
 .photo-gallery {
@@ -600,12 +612,10 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(70, 130, 180, 0.1) 0%,
-    transparent 50%,
-    rgba(255, 215, 0, 0.1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(70, 130, 180, 0.1) 0%,
+      transparent 50%,
+      rgba(255, 215, 0, 0.1) 100%);
   opacity: 0;
   transition: opacity var(--transition-normal);
   pointer-events: none;
@@ -683,11 +693,9 @@ section {
 
 /* === МЕСТОПОЛОЖЕНИЕ === */
 .location-section {
-  background: linear-gradient(
-    135deg,
-    rgba(70, 130, 180, 0.1) 0%,
-    rgba(248, 248, 255, 0.95) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(70, 130, 180, 0.1) 0%,
+      rgba(248, 248, 255, 0.95) 100%);
 }
 
 .location-content {
@@ -751,11 +759,9 @@ section {
 
 /* === ДЕТАЛИ ТОРЖЕСТВА === */
 .details-section {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 250, 205, 0.3) 0%,
-    rgba(135, 206, 235, 0.1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 250, 205, 0.3) 0%,
+      rgba(135, 206, 235, 0.1) 100%);
 }
 
 /* ИСПРАВЛЕНИЕ 2: Центрированный блок особенностей */
@@ -787,11 +793,9 @@ section {
   grid-column: 1 / -1;
   max-width: 600px;
   margin: 0 auto;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 215, 0, 0.1) 0%,
-    rgba(255, 255, 255, 0.9) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 215, 0, 0.1) 0%,
+      rgba(255, 255, 255, 0.9) 100%);
   border: 2px solid rgba(255, 215, 0, 0.3);
   box-shadow: var(--shadow-gold);
 }
@@ -801,22 +805,22 @@ section {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
-  
+
   .detail-card:first-child {
     grid-column: 1;
     grid-row: 1;
   }
-  
+
   .detail-card:nth-child(2) {
     grid-column: 2;
     grid-row: 1;
   }
-  
+
   .detail-card:nth-child(3) {
     grid-column: 1;
     grid-row: 2;
   }
-  
+
   .detail-card.featured {
     grid-column: 2;
     grid-row: 2;
@@ -841,12 +845,10 @@ section {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(70, 130, 180, 0.1),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(70, 130, 180, 0.1),
+      transparent);
   transition: left 0.6s;
 }
 
@@ -878,11 +880,9 @@ section {
 
 /* === ПЛАН МЕРОПРИЯТИЯ === */
 .schedule-section {
-  background: linear-gradient(
-    135deg,
-    rgba(248, 248, 255, 0.95) 0%,
-    rgba(70, 130, 180, 0.1) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(248, 248, 255, 0.95) 0%,
+      rgba(70, 130, 180, 0.1) 100%);
   position: relative;
 }
 
@@ -900,12 +900,10 @@ section {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(
-    to bottom,
-    var(--color-gold),
-    var(--color-baikal-blue),
-    var(--color-gold)
-  );
+  background: linear-gradient(to bottom,
+      var(--color-gold),
+      var(--color-baikal-blue),
+      var(--color-gold));
   transform: translateX(-50%);
 }
 
@@ -931,6 +929,7 @@ section {
 }
 
 @media (max-width: 768px) {
+
   .timeline-item,
   .timeline-item:nth-child(even) {
     flex-direction: row;
@@ -942,11 +941,9 @@ section {
 /* ИСПРАВЛЕНО: Четкое время в отдельном блоке */
 .timeline-time-block {
   min-width: 120px;
-  background: linear-gradient(
-    135deg,
-    var(--color-gold) 0%,
-    var(--color-gold-light) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--color-gold) 0%,
+      var(--color-gold-light) 100%);
   color: var(--color-white);
   padding: var(--spacing-md) var(--spacing-lg);
   border-radius: var(--radius-full);
@@ -1006,6 +1003,7 @@ section {
     opacity: 0;
     transform: translateY(30px) scale(0.95);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -1014,11 +1012,9 @@ section {
 
 /* === ОБРАТНАЯ СВЯЗЬ === */
 .contact-section {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 215, 0, 0.1) 0%,
-    rgba(248, 248, 255, 0.95) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 215, 0, 0.1) 0%,
+      rgba(248, 248, 255, 0.95) 100%);
   text-align: center;
 }
 
@@ -1065,21 +1061,17 @@ section {
 }
 
 .phone-btn {
-  background: linear-gradient(
-    135deg,
-    var(--color-baikal-blue),
-    var(--color-baikal-light)
-  );
+  background: linear-gradient(135deg,
+      var(--color-baikal-blue),
+      var(--color-baikal-light));
   color: var(--color-white);
   box-shadow: var(--shadow-baikal);
 }
 
 .telegram-btn {
-  background: linear-gradient(
-    135deg,
-    var(--color-gold),
-    var(--color-gold-light)
-  );
+  background: linear-gradient(135deg,
+      var(--color-gold),
+      var(--color-gold-light));
   color: var(--color-white);
   box-shadow: var(--shadow-gold);
 }
@@ -1096,12 +1088,10 @@ section {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
   transition: left 0.5s;
 }
 
@@ -1143,11 +1133,11 @@ section {
   .hero-title {
     font-size: var(--font-size-4xl);
   }
-  
+
   .section-title {
     font-size: var(--font-size-3xl);
   }
-  
+
   .profile-name {
     font-size: var(--font-size-3xl);
   }
@@ -1157,23 +1147,23 @@ section {
   section {
     padding: var(--spacing-3xl) 0;
   }
-  
+
   .hero-title {
     font-size: var(--font-size-3xl);
   }
-  
+
   .section-title {
     font-size: var(--font-size-2xl);
   }
-  
+
   .date-content {
     font-size: var(--font-size-2xl);
   }
-  
+
   .profile-name {
     font-size: var(--font-size-2xl);
   }
-  
+
   .venue-name {
     font-size: var(--font-size-xl);
   }
@@ -1183,28 +1173,28 @@ section {
   .container {
     padding: 0 var(--spacing-sm);
   }
-  
+
   .hero-title {
     font-size: var(--font-size-2xl);
   }
-  
+
   .section-title {
     font-size: var(--font-size-xl);
   }
-  
+
   .photo-gallery {
     grid-template-columns: 1fr;
   }
-  
+
   .details-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .timeline-time-block {
     min-width: 80px;
     padding: var(--spacing-sm) var(--spacing-md);
   }
-  
+
   .timeline-time {
     font-size: var(--font-size-base);
   }
@@ -1216,6 +1206,7 @@ section {
     opacity: 0;
     transform: translateY(30px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -1227,6 +1218,7 @@ section {
     opacity: 0;
     transform: scale(0.9);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -1238,6 +1230,7 @@ section {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -1249,6 +1242,7 @@ section {
     opacity: 0;
     transform: translateX(50px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -1273,4 +1267,265 @@ section {
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
+}
+
+.hero-description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  line-height: 1.8;
+  /* Увеличил интервал для лучшей читаемости */
+  margin-bottom: var(--spacing-2xl);
+  text-align: center;
+  /* Оставляем по левому краю */
+  hyphens: auto;
+  /* Автоматические переносы для равномерности линий */
+  word-break: break-word;
+  /* Разрешаем переносы слов, если нужно */
+  margin-left: -10px;
+  max-width: 100%;
+  /* Ограничиваем ширину, чтобы линии не растягивались полностью */
+}
+
+@media (max-width: 768px) {
+  .hero-description {
+    text-align: center;
+    /* На мобильных — по центру, как было */
+    max-width: 100%;
+    /* Полная ширина на маленьких экранах */
+
+  }
+}
+
+.centered-block {
+  margin: 0 auto;
+  /* Центрирование блока */
+  width: 600px;
+  /* Фиксированная ширина, равная для всех (можно скорректировать под дизайн) */
+  text-align: left;
+  /* Текст внутри выровнен по левому краю, как просили */
+}
+
+.large-text {
+  font-size: 3em;
+  /* Крупный шрифт для имен (увеличьте по вкусу) */
+}
+
+.small-text {
+  font-size: 1.2em;
+  /* Меньший шрифт для описания и даты */
+}
+
+.hero-title {
+  margin: 0;
+  /* Убираем лишние отступы */
+}
+
+.hero-description {
+  margin: 0;
+}
+
+.date-content {
+  margin: 0;
+}
+
+/* Отдельный стиль для имён "Александр & Екатерина" (дубликат из .hero-title) */
+.names-style {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-5xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--color-baikal-blue), var(--color-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+
+}
+
+@media (max-width: 768px) {
+  .names-style {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+/* Отдельный стиль для текста приглашения (дубликат из .hero-description и .hero-subtitle) */
+.invitation-style {
+  font-family: var(--font-subheading);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+  font-weight: 300;
+  line-height: 1.8;
+  text-align: center;
+  /* Или left, если нужно */
+  hyphens: auto;
+  word-break: break-word;
+  max-width: 80%;
+  margin-left: 45px;
+}
+
+@media (max-width: 768px) {
+  .invitation-style {
+    text-align: center;
+  }
+}
+
+/* Отдельный стиль для даты "15.09.2026" (дубликат из .date-content) */
+.date-style {
+  font-family: var(--font-accent);
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-gold);
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: var(--shadow-gold);
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  min-width: 152px;
+  margin-left: -40px;
+}
+
+.date-style::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+/* Адаптация для мобильных устройств: фото по центру сверху, текст ниже */
+@media (max-width: 768px) {
+  .hero-content {
+    display: flex; /* Переходим на flex для лучшего контроля стека */
+    flex-direction: column; /* Вертикальный стек: фото сверху, текст снизу */
+    align-items: center; /* Центрируем всё по горизонтали */
+    gap: var(--spacing-2xl); /* Зазор между фото и текстом */
+    text-align: center;
+  }
+
+  /* Фото по центру */
+  .hero-image,
+  .golden-frame,
+  .couple-photo {
+    margin: 0 auto; /* Центрирование */
+    display: block;
+    max-width: 80%; /* Не растягиваем на весь экран */
+    height: auto; /* Сохраняем пропорции */
+    order: -1; /* Убеждаемся, что фото первое (сверху) */
+  }
+
+  /* Текст под фото */
+  .hero-text {
+    max-width: 90%; /* Ограничиваем ширину для читаемости */
+    text-align: center; /* Центрируем текст */
+  }
+
+  /* Дополнительно: корректируем дату, если она в тексте */
+  .date-style {
+    margin-left: 0 !important; /* Убираем отступ слева */
+    margin: 0 auto; /* Центрируем дату */
+  }
+}
+/* Корректировка для мобильных: текст полностью помещается в экран */
+@media (max-width: 768px) {
+  /* Общие текстовые блоки: полный перенос и ширина */
+  .hero-text,
+  .hero-description,
+  .invitation-style,
+  .story-text,
+  .profile-description,
+  .venue-description,
+  .detail-info,
+  .timeline-content p {
+    max-width: 100% !important; /* Полная ширина экрана */
+    margin-left: 0 !important; /* Обнуляем отступы слева */
+    margin-right: 0 !important; /* Обнуляем отступы справа */
+    overflow-wrap: break-word; /* Перенос длинных слов */
+    word-wrap: break-word; /* Дополнительно для совместимости */
+    hyphens: auto; /* Автоматические переносы */
+    text-align: center; /* Центрируем для лучшей читаемости */
+    padding: 0 var(--spacing-sm); /* Небольшой отступ по бокам, чтобы не прилипало к краю */
+  }
+
+  /* Уменьшаем шрифты для мобильных */
+  .hero-title,
+  .names-style {
+    font-size: var(--font-size-3xl) !important; /* Уменьшаем с 4xl до 3xl (1.875rem) */
+  }
+
+  .hero-subtitle,
+  .invitation-style,
+  .hero-description {
+    font-size: var(--font-size-base) !important; /* 1rem для основного текста */
+  }
+
+  .date-style {
+    font-size: var(--font-size-xl) !important; /* Уменьшаем дату */
+    min-width: auto; /* Не фиксируем ширину */
+    padding: var(--spacing-sm); /* Меньше отступов */
+  }
+
+  /* Контейнер: убираем лишние paddings, если они вызывают overflow */
+  .container,
+  .hero-content {
+    padding: 0 var(--spacing-sm); /* Минимальные отступы */
+    overflow: hidden; /* Предотвращаем горизонтальный скролл */
+  }
+}
+/* Дополнительная адаптация для очень узких мобильных экранов: текст имён полностью помещается */
+@media (max-width: 480px) {
+  .hero-title,
+  .names-style {
+    font-size: var(--font-size-2xl) !important; /* Уменьшаем до 1.5rem для компактности */
+    white-space: normal; /* Разрешаем перенос на новую строку */
+    overflow-wrap: anywhere; /* Переносит даже в середине слова, если нужно (например, "Екатерина" разобьётся) */
+    word-break: break-word; /* Дополнительный перенос для длинных имён */
+    line-height: 1.1; /* Уменьшаем интервал для плотности */
+    max-width: 100%; /* Не даём выходить за экран */
+    margin: 0 auto; /* Центрируем */
+    padding: 0 var(--spacing-xs); /* Минимальные отступы по бокам */
+  }
+}
+
+/* Общее улучшение для мобильных: предотвращаем обрезку в hero-section */
+@media (max-width: 768px) {
+  .hero-title,
+  .names-style {
+    white-space: normal !important; /* Переопределяем, если было nowrap */
+    overflow: visible; /* Не обрезаем текст */
+  }
+}
+/* Перенос длинного заголовка на узких экранах */
+.centered-block.large-text {
+  white-space: normal !important;      /* разрешить перенос строк */
+  overflow-wrap: break-word !important;/* перенос при нехватке места */
+  word-break: break-word !important;   /* дополнительная совместимость */
+  display: inline-block;               /* нужен для градиентного текста */
+  max-width: 100%;                     /* не выходить за экран */
+  text-align: center;
+}
+
+/* ещё сильнее уменьшаем шрифт на очень узких телефонах */
+@media (max-width: 480px) {
+  .centered-block.large-text {
+    font-size: 1.5rem; /* ≈24 px — подберите под дизайн */
+    line-height: 1.15;
+  }
 }
