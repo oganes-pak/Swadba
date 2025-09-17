@@ -2448,16 +2448,6 @@ footer {
   border-radius: 8px;
 }
 
-
-
-.card:hover .thumb::after {
-  transform: translateY(0);
-}
-
-.thumb {
-  position: relative;
-}
-
 .thumb::before {
   content: "🔗";
   position: absolute;
@@ -2475,6 +2465,8 @@ footer {
   transform: scale(0);
   transition: transform 0.3s ease;
   z-index: 10;
+  pointer-events: none;
+  /* ВАЖНО! Это позволяет кликам проходить через псевдоэлемент */
 }
 
 .card:hover .thumb::before {
@@ -2500,10 +2492,6 @@ footer {
   }
 }
 
-.thumb {
-  position: relative;
-}
-
 .thumb::after {
   content: "НАЖМИТЕ\AЧТОБЫ ОТКРЫТЬ";
   white-space: pre;
@@ -2523,6 +2511,8 @@ footer {
   letter-spacing: 1px;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
+  /* ВАЖНО! Это тоже нужно добавить */
 }
 
 .card:hover .thumb::after {
